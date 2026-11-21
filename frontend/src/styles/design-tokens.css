@@ -1,0 +1,359 @@
+/* =========================================================
+   BANKSERVICES DESIGN SYSTEM (Circle-inspired)
+   Navy/blue BankServices identity on warm cream canvases,
+   light display headlines, pill buttons, generous radii.
+   Light values on :root, dark values on html[data-theme=dark]
+   (set by ThemeModeProvider). Purely additive: existing app
+   tokens (--bs-*) are untouched.
+========================================================= */
+
+:root {
+    /* Typography */
+    --font-display: "Outfit", "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-label: "Barlow Semi Condensed", "Inter", system-ui, sans-serif;
+
+    --fs-display: clamp(2.75rem, 1.6rem + 4.6vw, 5.25rem);
+    --fs-h2: clamp(2rem, 1.35rem + 2.4vw, 3.4rem);
+    --fs-h3: clamp(1.2rem, 1.05rem + 0.5vw, 1.5rem);
+    --fs-lead: clamp(1.05rem, 0.98rem + 0.35vw, 1.3rem);
+    --tracking-display: -0.02em;
+    --tracking-label: 0.09em;
+
+    /* Shape */
+    --radius-pill: 999px;
+    --radius-xl: 40px;
+    --radius-lg: 28px;
+    --radius-md: 20px;
+    --radius-sm: 14px;
+    --curve: clamp(36px, 6vw, 88px);
+
+    /* Spacing */
+    --space-section: clamp(72px, 9vw, 136px);
+    --gutter: clamp(16px, 4vw, 40px);
+    --content-width: 1200px;
+
+    /* Palette (light) */
+    --ds-canvas: #F7F2EA;
+    --ds-canvas-2: #EFE5D6;
+    --ds-paper: #FFFDF9;
+    --ds-sand: #E8CDB2;
+    --ds-sand-strong: #D9AE88;
+    --ds-ink: #14213D;
+    --ds-ink-soft: #46516A;
+    --ds-ink-muted: #707A8E;
+    --ds-line: rgba(20, 33, 61, 0.14);
+    --ds-dash: rgba(20, 33, 61, 0.32);
+    --ds-blue: #1D4ED8;
+    --ds-blue-deep: #0E2C6B;
+    --ds-navy: #0B1B33;
+    --ds-sky: #8DB4FF;
+
+    --ds-gradient: linear-gradient(152deg, #0B1B33 0%, #133A85 30%, #2E62BC 54%, #94AED2 78%, #E8CDB2 100%);
+    --ds-gradient-soft: linear-gradient(135deg, #DCE7FB 0%, #F2E6D8 100%);
+
+    --ds-shadow-card: 0 1px 2px rgba(20, 33, 61, 0.04), 0 14px 34px -16px rgba(20, 33, 61, 0.18);
+    --ds-shadow-lift: 0 28px 56px -22px rgba(20, 33, 61, 0.32);
+    --ds-shadow-sheet: 0 -24px 60px -30px rgba(11, 27, 51, 0.45);
+
+    /* Illustration palette (recolourable line art) */
+    --ill-ink: #14213D;
+    --ill-paper: #FFFDF9;
+    --ill-screen: #EEF3FD;
+    --ill-blue: #2F62D8;
+    --ill-sky: #A9C6FF;
+    --ill-sand: #EBCDB3;
+    --ill-sand-deep: #D9A984;
+    --ill-blob: #F1DCC8;
+}
+
+html[data-theme="dark"] {
+    --ds-canvas: #0A1220;
+    --ds-canvas-2: #0F1A2E;
+    --ds-paper: #131F35;
+    --ds-sand: #C9A689;
+    --ds-sand-strong: #E2C2A6;
+    --ds-ink: #EAF0F8;
+    --ds-ink-soft: #B6C1D4;
+    --ds-ink-muted: #8D99AE;
+    --ds-line: rgba(234, 240, 248, 0.12);
+    --ds-dash: rgba(234, 240, 248, 0.28);
+    --ds-blue: #6EA0FF;
+    --ds-sky: #9DBDFF;
+
+    --ds-gradient: linear-gradient(152deg, #050C18 0%, #0E2A62 32%, #22509E 56%, #5F7392 80%, #9C8370 100%);
+    --ds-gradient-soft: linear-gradient(135deg, #142443 0%, #2A2622 100%);
+
+    --ds-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 36px -18px rgba(0, 0, 0, 0.6);
+    --ds-shadow-lift: 0 28px 56px -22px rgba(0, 0, 0, 0.7);
+    --ds-shadow-sheet: 0 -24px 60px -30px rgba(0, 0, 0, 0.8);
+
+    --ill-ink: #D7E2F3;
+    --ill-paper: #1B2A46;
+    --ill-screen: #22355A;
+    --ill-blue: #4F7FE0;
+    --ill-sky: #5A7FC4;
+    --ill-sand: #B68E70;
+    --ill-sand-deep: #9A7357;
+    --ill-blob: #1E2C47;
+}
+
+/* Brand illustrations always use the light palette on the gradient bands */
+.ill--brand {
+    --ill-ink: #14213D;
+    --ill-paper: #FFFDF9;
+    --ill-screen: #EEF3FD;
+    --ill-blue: #2F62D8;
+    --ill-sky: #A9C6FF;
+    --ill-sand: #EBCDB3;
+    --ill-sand-deep: #D9A984;
+    --ill-blob: rgba(255, 255, 255, 0.14);
+}
+
+/* ---------------------------------------------------------
+   TYPE UTILITIES
+--------------------------------------------------------- */
+
+.ds-display {
+    font-family: var(--font-display);
+    font-size: var(--fs-display);
+    font-weight: 300;
+    line-height: 1.02;
+    letter-spacing: var(--tracking-display);
+}
+
+.ds-h2 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h2);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    color: var(--ds-ink);
+}
+
+.ds-h3 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ds-ink);
+}
+
+.ds-lead {
+    font-size: var(--fs-lead);
+    line-height: 1.6;
+    color: var(--ds-ink-soft);
+}
+
+.ds-label {
+    font-family: var(--font-label);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   PILL BUTTONS (applied on MUI Button or plain links)
+--------------------------------------------------------- */
+
+.MuiButton-root.ds-btn,
+a.ds-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 30px;
+    border-radius: var(--radius-pill);
+    border: 1.5px solid transparent;
+    font-family: var(--font-label);
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    box-shadow: none;
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+        background-color 220ms var(--ease-standard, ease),
+        color 220ms var(--ease-standard, ease),
+        border-color 220ms var(--ease-standard, ease),
+        box-shadow 260ms var(--ease-standard, ease),
+        transform 220ms var(--ease-emphasized, ease);
+}
+
+.MuiButton-root.ds-btn--lg,
+a.ds-btn--lg {
+    min-height: 60px;
+    padding: 0 38px;
+    font-size: 1.08rem;
+}
+
+.MuiButton-root.ds-btn--sm,
+a.ds-btn--sm {
+    min-height: 42px;
+    padding: 0 22px;
+    font-size: 0.95rem;
+}
+
+.ds-btn .MuiButton-endIcon { margin-left: 2px; }
+
+.MuiButton-root.ds-btn--sand,
+a.ds-btn--sand {
+    background: var(--ds-sand);
+    color: #14213D;
+}
+
+.MuiButton-root.ds-btn--light,
+a.ds-btn--light {
+    background: #FFFFFF;
+    color: #14213D;
+}
+
+.MuiButton-root.ds-btn--primary,
+a.ds-btn--primary {
+    background: var(--ds-blue);
+    color: #FFFFFF;
+}
+
+html[data-theme="dark"] .MuiButton-root.ds-btn--primary,
+html[data-theme="dark"] a.ds-btn--primary {
+    color: #06122A;
+}
+
+.MuiButton-root.ds-btn--outline-light,
+a.ds-btn--outline-light {
+    background: transparent;
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.55);
+}
+
+.MuiButton-root.ds-btn--outline,
+a.ds-btn--outline {
+    background: transparent;
+    color: var(--ds-ink);
+    border-color: var(--ds-dash);
+}
+
+/* Light sweep on hover */
+.ds-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+    transform: translateX(-130%);
+    transition: transform 700ms var(--ease-emphasized, ease);
+}
+
+@media (hover: hover) {
+    .MuiButton-root.ds-btn:not(.Mui-disabled):hover,
+    a.ds-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .ds-btn:hover::after { transform: translateX(130%); }
+
+    .MuiButton-root.ds-btn--sand:hover,
+    a.ds-btn--sand:hover {
+        background: var(--ds-sand-strong);
+        box-shadow: 0 14px 30px -14px rgba(217, 174, 136, 0.9);
+    }
+
+    .MuiButton-root.ds-btn--light:hover,
+    a.ds-btn--light:hover {
+        background: #F4F7FD;
+        box-shadow: 0 14px 30px -14px rgba(11, 27, 51, 0.5);
+    }
+
+    .MuiButton-root.ds-btn--primary:hover,
+    a.ds-btn--primary:hover {
+        box-shadow: 0 14px 30px -14px color-mix(in srgb, var(--ds-blue) 80%, transparent);
+    }
+
+    .MuiButton-root.ds-btn--outline-light:hover,
+    a.ds-btn--outline-light:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: #FFFFFF;
+    }
+
+    .MuiButton-root.ds-btn--outline:hover,
+    a.ds-btn--outline:hover {
+        border-color: var(--ds-ink);
+    }
+}
+
+.MuiButton-root.ds-btn:not(.Mui-disabled):active,
+a.ds-btn:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: 90ms;
+}
+
+.MuiButton-root.ds-btn.Mui-focusVisible,
+a.ds-btn:focus-visible {
+    outline: 3px solid var(--ds-sky);
+    outline-offset: 3px;
+    border-radius: var(--radius-pill);
+}
+
+/* Arrow link ("SIGN IN TO START ->") */
+.ds-arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-label);
+    font-size: 1.02rem;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--ds-blue);
+}
+
+.ds-arrow-link svg {
+    transition: transform 260ms var(--ease-emphasized, ease);
+}
+
+.ds-arrow-link:hover svg,
+.ds-arrow-link:focus-visible svg {
+    transform: translateX(4px);
+}
+
+/* ---------------------------------------------------------
+   ILLUSTRATION CLASSES (components/illustrations)
+   Every shape is coloured through these, so a whole
+   illustration is recoloured by changing --ill-* variables.
+--------------------------------------------------------- */
+
+.ill {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.ill .p  { fill: var(--ill-paper);     stroke: var(--ill-ink); stroke-width: 2; }
+.ill .t  { fill: var(--ill-screen);    stroke: var(--ill-ink); stroke-width: 1.5; }
+.ill .b  { fill: var(--ill-blue);      stroke: var(--ill-ink); stroke-width: 2; }
+.ill .k  { fill: var(--ill-sky);       stroke: var(--ill-ink); stroke-width: 2; }
+.ill .n  { fill: var(--ill-sand);      stroke: var(--ill-ink); stroke-width: 2; }
+.ill .d  { fill: var(--ill-sand-deep); stroke: var(--ill-ink); stroke-width: 2; }
+.ill .l  { fill: none; stroke: var(--ill-ink); stroke-width: 2; }
+.ill .lt { fill: none; stroke: var(--ill-ink); stroke-width: 1.5; opacity: 0.55; }
+.ill .lb { fill: none; stroke: var(--ill-blue); stroke-width: 3; }
+.ill .lw { fill: none; stroke: var(--ill-paper); stroke-width: 2; }
+.ill .dash { fill: none; stroke: var(--ill-ink); stroke-width: 1.6; stroke-dasharray: 5 8; opacity: 0.6; }
+.ill .fi { fill: var(--ill-ink); }
+.ill .fp { fill: var(--ill-paper); }
+.ill .fb { fill: var(--ill-blue); }
+.ill .fk { fill: var(--ill-sky); }
+.ill .fn { fill: var(--ill-sand); }
+.ill .fd { fill: var(--ill-sand-deep); }
+.ill .fm { fill: var(--ill-ink); opacity: 0.22; }
+.ill .fa { fill: var(--ill-sky); opacity: 0.4; }
+.ill .blob { fill: var(--ill-blob); }

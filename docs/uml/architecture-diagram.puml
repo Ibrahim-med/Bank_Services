@@ -1,0 +1,146 @@
+@startuml BankServices_Layers
+!pragma layout smetana
+title BankServices - UML class diagram (layered architecture: controllers, services, repositories)
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundCorner 6
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #1F4E79
+  ArrowColor #1F4E79
+}
+hide empty fields
+
+package "controller  (REST API /api/**)" #F3F8FD {
+  class AuthController <<@RestController>> {
+    + login(LoginRequest) : LoginResponse
+    + register(RegisterRequest) : String
+    + activateAccount(ActivateAccountRequest)
+    + forgotPassword(ForgotPasswordRequest)
+    + resetPassword(ResetPasswordRequest)
+  }
+  class ClientController <<@RestController>> {
+    + createClient(ClientRequest) : ClientResponse
+    + getAllClients() : List<ClientResponse>
+    + updateClient(id, ClientRequest)
+    + deleteClient(id)
+  }
+  class CompteController <<@RestController>> {
+    + createCompte(CompteRequest) : CompteResponse
+    + getComptesByClient(idClient)
+    + closeCompte(id) / reopenCompte(id)
+  }
+  class TransactionController <<@RestController>> {
+    + executeTransaction(TransactionRequest) : TransactionResponse
+    + getAllTransactions() / getTransactionsByClient(id)
+  }
+  class AdminBillController <<@RestController>> {
+    + createBill(BillRequest) : BillResponse
+    + getAllBills(filters) / cancelBill(id)
+  }
+  class ClientBillController <<@RestController>> {
+    + getBills() / getUnpaidBills() / getPaidBills()
+    + payBill(id, PayBillRequest) : BillPaymentResponse
+    + getReceipt(id) : BillPaymentResponse
+  }
+  class AdminClientController <<@RestController>> {
+    + registerClient(ClientRegistrationRequest)
+    + sendActivationEmail(id)
+  }
+}
+
+package "service  (business logic, @Transactional)" #F6FBF3 {
+  class AuthService {
+    + login(LoginRequest) : LoginResponse
+    + register(RegisterRequest) : String
+  }
+  class JwtService {
+    + generateToken(username) : String
+    + extractUsername(token) : String
+    + isTokenValid(token, username) : boolean
+  }
+  class ClientService {
+    + createClient() / getAllClients()
+    + getClientById() / updateClient() / deleteClient()
+  }
+  class CompteService {
+    + createCompte(CompteRequest) : CompteResponse
+    + getComptesByClient(idClient)
+    + closeCompte(id) / reopenCompte(id)
+  }
+  class TransactionService {
+    + executeTransaction(TransactionRequest) : TransactionResponse
+    - executeDeposit() / executeWithdrawal() / executeTransfer()
+    - checkAvailableBalance(compte, newBalance)
+    - obtenirCompteVerrouille(id) : CompteBancaire
+  }
+  class BillService {
+    + createBill() / cancelBill() / getAllBills()
+    + getClientBills() / getClientBill()
+  }
+  class BillPaymentService {
+    + payBill(username, idBill, idCompte) : BillPaymentResponse
+    + getPayments() / getReceipt()
+  }
+  class AccountActivationService {
+    + registerClient() / activateAccount() / resendActivation()
+  }
+  class PasswordResetService {
+    + requestPasswordReset() / resetPassword()
+  }
+  class CompteSecurityService {
+    + isOwner(idCompte, username) : boolean
+  }
+}
+
+package "repository  (Spring Data JPA)" #FDF8F1 {
+  interface ClientRepository
+  interface CompteRepository {
+    + findByIdForUpdate(id) : Optional<CompteBancaire>
+  }
+  interface TransactionRepository
+  interface BillRepository {
+    + findByIdForUpdate(id) : Optional<Bill>
+  }
+  interface BillPaymentRepository
+  interface UtilisateurRepository {
+    + findByUsername(username) : Optional<Utilisateur>
+  }
+}
+
+interface "JpaRepository<T, ID>" as JpaRepository
+ClientRepository --|> JpaRepository
+CompteRepository --|> JpaRepository
+TransactionRepository --|> JpaRepository
+BillRepository --|> JpaRepository
+BillPaymentRepository --|> JpaRepository
+UtilisateurRepository --|> JpaRepository
+
+AuthController --> AuthService
+AuthController --> AccountActivationService
+AuthController --> PasswordResetService
+AdminClientController --> AccountActivationService
+ClientController --> ClientService
+CompteController --> CompteService
+TransactionController --> TransactionService
+AdminBillController --> BillService
+ClientBillController --> BillService
+ClientBillController --> BillPaymentService
+
+AuthService --> UtilisateurRepository
+AuthService --> JwtService
+ClientService --> ClientRepository
+CompteService --> CompteRepository
+TransactionService --> CompteRepository
+TransactionService --> TransactionRepository
+TransactionService --> CompteSecurityService
+BillService --> BillRepository
+BillPaymentService --> BillRepository
+BillPaymentService --> CompteRepository
+BillPaymentService --> BillPaymentRepository
+BillPaymentService --> TransactionRepository
+
+@enduml

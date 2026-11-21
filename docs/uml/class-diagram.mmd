@@ -1,0 +1,129 @@
+classDiagram
+    direction TB
+
+    class Utilisateur {
+        -Integer idUtilisateur
+        -String username
+        -String password  «BCrypt»
+        -String role  «ADMIN | CLIENT»
+        -StatutUtilisateur statut
+        +isActive() boolean
+    }
+    class Client {
+        -Integer idClient
+        -String nom
+        -String prenom
+        -String email
+        -String telephone
+        -String adresse
+        -List~CompteBancaire~ comptes
+    }
+    class CompteBancaire {
+        <<abstract>>
+        -Integer idCompte
+        -String numero
+        -BigDecimal solde
+        -BigDecimal decouvertAutorise
+        -BigDecimal tauxInteret
+        -LocalDate dateCreation
+        -StatutCompte statut
+        #initialiserDateCreation() void
+    }
+    class CompteCourant {
+        +getDecouvertAutoriseCourant() BigDecimal
+        +setDecouvertAutoriseCourant(BigDecimal) void
+    }
+    class CompteEpargne {
+        +getTauxInteretEpargne() BigDecimal
+        +setTauxInteretEpargne(BigDecimal) void
+    }
+    class TransactionBancaire {
+        -Integer idTransaction
+        -TypeTransaction typeTransaction
+        -BigDecimal montant
+        -LocalDateTime dateTransaction
+        -String description
+        -StatutTransaction statut
+    }
+    class Bill {
+        -Integer idBill
+        -String reference
+        -String provider
+        -BillCategory category
+        -BigDecimal amount
+        -LocalDate issueDate
+        -LocalDate dueDate
+        -BillStatus status
+        -LocalDateTime paidAt
+    }
+    class BillPayment {
+        -Integer idBillPayment
+        -String reference
+        -BigDecimal amount
+        -LocalDateTime paymentDate
+        -BillPaymentStatus status
+    }
+    class AccountActivationToken {
+        -Long id
+        -String tokenHash  «SHA-256»
+        -LocalDateTime expiryDate
+        -boolean used
+    }
+    class PasswordResetToken {
+        -Long id
+        -String tokenHash  «SHA-256»
+        -LocalDateTime expiryDate
+        -boolean used
+    }
+
+    class TypeTransaction {
+        <<enumeration>>
+        DEPOT
+        RETRAIT
+        VIREMENT
+        PAIEMENT_FACTURE
+    }
+    class StatutCompte {
+        <<enumeration>>
+        ACTIVE
+        CLOSED
+    }
+    class StatutUtilisateur {
+        <<enumeration>>
+        PENDING_ACTIVATION
+        ACTIVE
+        DISABLED
+    }
+    class BillStatus {
+        <<enumeration>>
+        UNPAID
+        PAID
+        CANCELLED
+    }
+    class BillCategory {
+        <<enumeration>>
+        ELECTRICITY
+        WATER
+        INTERNET
+        TELEPHONE
+        OTHER
+    }
+
+    CompteBancaire <|-- CompteCourant : COURANT
+    CompteBancaire <|-- CompteEpargne : EPARGNE
+    Utilisateur "0..1" --> "0..1" Client : login of
+    Client "1" *-- "0..*" CompteBancaire : owns
+    TransactionBancaire "0..*" --> "0..1" CompteBancaire : source
+    TransactionBancaire "0..*" --> "0..1" CompteBancaire : destination
+    Bill "0..*" --> "1" Client : issued to
+    BillPayment "0..1" --> "1" Bill : pays
+    BillPayment "0..*" --> "1" CompteBancaire : debits
+    BillPayment "0..1" --> "1" TransactionBancaire : recorded as
+    AccountActivationToken "0..*" --> "1" Utilisateur
+    PasswordResetToken "0..*" --> "1" Utilisateur
+
+    Utilisateur ..> StatutUtilisateur
+    CompteBancaire ..> StatutCompte
+    TransactionBancaire ..> TypeTransaction
+    Bill ..> BillStatus
+    Bill ..> BillCategory

@@ -1,0 +1,177 @@
+@startuml BankServices_Domain_Model
+!pragma layout smetana
+title BankServices - UML class diagram (domain model)
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam roundCorner 6
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #1F4E79
+  ArrowColor #1F4E79
+  HeaderBackgroundColor #DCE8F5
+}
+skinparam enum {
+  BackgroundColor #FFF8E6
+  BorderColor #B7791F
+}
+
+package "entity" {
+
+  class Client {
+    - idClient : Integer
+    - nom : String
+    - prenom : String
+    - email : String
+    - telephone : String
+    - adresse : String
+    - comptes : List<CompteBancaire>
+  }
+
+  class Utilisateur {
+    - idUtilisateur : Integer
+    - username : String
+    - password : String  <<BCrypt>>
+    - role : String  <<ADMIN | CLIENT>>
+    - statut : StatutUtilisateur
+    + isActive() : boolean
+  }
+
+  abstract class CompteBancaire {
+    - idCompte : Integer
+    - numero : String
+    - solde : BigDecimal
+    - decouvertAutorise : BigDecimal
+    - tauxInteret : BigDecimal
+    - dateCreation : LocalDate
+    - statut : StatutCompte
+    # initialiserDateCreation() : void
+  }
+
+  class CompteCourant {
+    + getDecouvertAutoriseCourant() : BigDecimal
+    + setDecouvertAutoriseCourant(montant : BigDecimal)
+  }
+
+  class CompteEpargne {
+    + getTauxInteretEpargne() : BigDecimal
+    + setTauxInteretEpargne(taux : BigDecimal)
+  }
+
+  class TransactionBancaire {
+    - idTransaction : Integer
+    - typeTransaction : TypeTransaction
+    - montant : BigDecimal
+    - dateTransaction : LocalDateTime
+    - description : String
+    - statut : StatutTransaction
+  }
+
+  class Bill {
+    - idBill : Integer
+    - reference : String
+    - provider : String
+    - category : BillCategory
+    - amount : BigDecimal
+    - issueDate : LocalDate
+    - dueDate : LocalDate
+    - status : BillStatus
+    - createdAt : LocalDateTime
+    - paidAt : LocalDateTime
+  }
+
+  class BillPayment {
+    - idBillPayment : Integer
+    - reference : String
+    - amount : BigDecimal
+    - paymentDate : LocalDateTime
+    - status : BillPaymentStatus
+  }
+
+  class AccountActivationToken {
+    - id : Long
+    - tokenHash : String  <<SHA-256>>
+    - expiryDate : LocalDateTime
+    - used : boolean
+    - createdAt : LocalDateTime
+  }
+
+  class PasswordResetToken {
+    - id : Long
+    - tokenHash : String  <<SHA-256>>
+    - expiryDate : LocalDateTime
+    - used : boolean
+    - createdAt : LocalDateTime
+  }
+}
+
+package "enums" {
+  enum TypeCompte {
+    COURANT
+    EPARGNE
+  }
+  enum StatutCompte {
+    ACTIVE
+    CLOSED
+  }
+  enum TypeTransaction {
+    DEPOT
+    RETRAIT
+    VIREMENT
+    PAIEMENT_FACTURE
+  }
+  enum StatutTransaction {
+    VALIDEE
+    REFUSEE
+  }
+  enum StatutUtilisateur {
+    PENDING_ACTIVATION
+    ACTIVE
+    DISABLED
+  }
+  enum BillCategory {
+    ELECTRICITY
+    WATER
+    INTERNET
+    TELEPHONE
+    OTHER
+  }
+  enum BillStatus {
+    UNPAID
+    PAID
+    CANCELLED
+  }
+  enum BillPaymentStatus {
+    COMPLETED
+  }
+}
+
+' ---- Inheritance (JPA SINGLE_TABLE, discriminator type_compte) ----
+CompteBancaire <|-- CompteCourant
+CompteBancaire <|-- CompteEpargne
+
+' ---- Associations ----
+Client "1" *-- "0..*" CompteBancaire : owns >
+Utilisateur "0..1" -- "0..1" Client : online login for >
+CompteBancaire "0..1" <-- "0..*" TransactionBancaire : compteSource
+CompteBancaire "0..1" <-- "0..*" TransactionBancaire : compteDestination
+Client "1" <-- "0..*" Bill : issued to
+BillPayment "0..1" --> "1" Bill : pays
+BillPayment "0..*" --> "1" CompteBancaire : debits
+BillPayment "0..1" --> "1" TransactionBancaire : recorded as
+AccountActivationToken "0..*" --> "1" Utilisateur
+PasswordResetToken "0..*" --> "1" Utilisateur
+
+' ---- Enum usage ----
+CompteBancaire ..> StatutCompte
+CompteBancaire ..> TypeCompte : discriminator
+TransactionBancaire ..> TypeTransaction
+TransactionBancaire ..> StatutTransaction
+Utilisateur ..> StatutUtilisateur
+Bill ..> BillCategory
+Bill ..> BillStatus
+BillPayment ..> BillPaymentStatus
+
+@enduml

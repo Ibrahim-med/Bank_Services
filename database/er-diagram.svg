@@ -1,0 +1,317 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="928" viewBox="0 0 1180 928" font-family="Arial, Helvetica, sans-serif">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="30" y="38" font-size="20" font-weight="bold" fill="#10283f">BankServices — database schema (MySQL 8, InnoDB, utf8mb4)</text>
+<text x="30" y="60" font-size="12" fill="#566476">8 tables · created by Flyway migrations V1–V3 · CHECK constraints enforce the business rules at database level</text>
+<path d="M370 214 L420 214" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M378 208 L378 220" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="388" cy="214" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M412 220 L412 208" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="402" cy="214" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<text x="395" y="231" font-size="11" font-style="italic" fill="#2a6db5" text-anchor="middle">id_client</text>
+<path d="M590 230 L590 360" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M596 238 L584 238" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M596 243 L584 243" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M583 360 L590 347" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M597 360 L590 347" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="590" cy="341" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<text x="598" y="299" font-size="11" font-style="italic" fill="#2a6db5" text-anchor="start">id_client</text>
+<path d="M810 271 L785 271 L785 140 L760 140" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M810 278 L797 271" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M810 264 L797 271" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="791" cy="271" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M768 134 L768 146" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M773 134 L773 146" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M200 230 L200 360" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M206 238 L194 238" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M206 243 L194 243" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M193 360 L200 347" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M207 360 L200 347" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="200" cy="341" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<text x="208" y="299" font-size="11" font-style="italic" fill="#2a6db5" text-anchor="start">id_utilisateur</text>
+<path d="M30 677 L14 677 L14 130 L30 130" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M30 684 L17 677" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M30 670 L17 677" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="11" cy="677" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M22 136 L22 124" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M17 136 L17 124" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M540 567 L540 680" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M546 575 L534 575" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="540" cy="585" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M533 680 L540 667" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M547 680 L540 667" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="540" cy="661" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<text x="534" y="627.5" font-size="11" font-style="italic" fill="#2a6db5" text-anchor="end">id_compte_source</text>
+<path d="M650 567 L650 680" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M656 575 L644 575" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="650" cy="585" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M643 680 L650 667" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M657 680 L650 667" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="650" cy="661" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<text x="656" y="627.5" font-size="11" font-style="italic" fill="#2a6db5" text-anchor="start">id_compte_destination</text>
+<path d="M980 325 L980 430" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M986 333 L974 333" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M986 338 L974 338" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M974 422 L986 422" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="980" cy="412" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<text x="988" y="381.5" font-size="11" font-style="italic" fill="#2a6db5" text-anchor="start">id_bill (UNIQUE)</text>
+<path d="M760 526 L810 526" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M768 520 L768 532" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M773 520 L773 532" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M810 533 L797 526" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M810 519 L797 526" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="791" cy="526" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M890 759 L980 759 L980 618" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M898 753 L898 765" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M903 753 L903 765" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M986 626 L974 626" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="980" cy="636" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<text x="988" y="692.5" font-size="11" font-style="italic" fill="#2a6db5" text-anchor="start">id_transaction (UNIQUE)</text>
+<path d="M100 904 L160 904" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M152 910 L152 898" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M147 910 L147 898" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M290 904 L350 904" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M342 910 L342 898" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="332" cy="904" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M480 904 L540 904" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M540 911 L527 904" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<path d="M540 897 L527 904" stroke="#1F4E79" stroke-width="1.4" fill="none"/>
+<circle cx="521" cy="904" r="4.5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<rect x="30" y="80" width="340" height="150" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M30.7 110 V85 Q30.7 80.7 35 80.7 H365 Q369.3 80.7 369.3 85 V110 Z" fill="#1F4E79"/>
+<text x="40" y="100" font-size="14" font-weight="bold" fill="#fff">utilisateur</text>
+<text x="38" y="124" font-size="10" font-weight="bold" fill="#B7791F">PK</text>
+<text x="80" y="124" font-size="12.5" font-weight="bold" text-decoration="underline" fill="#14263a">id_utilisateur</text>
+<text x="362" y="124" font-size="10.5" text-anchor="end" fill="#566476">INT AUTO_INCREMENT</text>
+<rect x="31" y="130" width="338" height="19" fill="#F2F6FB"/>
+<text x="38" y="143" font-size="10" font-weight="bold" fill="#7a8796">UK</text>
+<text x="80" y="143" font-size="12.5"  fill="#14263a">username</text>
+<text x="362" y="143" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(50)</text>
+<text x="38" y="162" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="80" y="162" font-size="12.5"  fill="#14263a">password</text>
+<text x="362" y="162" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(255)  BCrypt</text>
+<rect x="31" y="168" width="338" height="19" fill="#F2F6FB"/>
+<text x="38" y="181" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="80" y="181" font-size="12.5"  fill="#14263a">role</text>
+<text x="362" y="181" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(20)  ADMIN|CLIENT</text>
+<text x="38" y="200" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="80" y="200" font-size="12.5"  fill="#14263a">statut</text>
+<text x="362" y="200" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(20)  CHECK</text>
+<rect x="31" y="206" width="338" height="19" fill="#F2F6FB"/>
+<text x="38" y="219" font-size="10" font-weight="bold" fill="#2a6db5">FK UK</text>
+<text x="80" y="219" font-size="12.5"  fill="#14263a">id_client<tspan fill="#8a96a3"> ?</tspan></text>
+<text x="362" y="219" font-size="10.5" text-anchor="end" fill="#566476">INT</text>
+<rect x="420" y="80" width="340" height="150" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M420.7 110 V85 Q420.7 80.7 425 80.7 H755 Q759.3 80.7 759.3 85 V110 Z" fill="#1F4E79"/>
+<text x="430" y="100" font-size="14" font-weight="bold" fill="#fff">client</text>
+<text x="428" y="124" font-size="10" font-weight="bold" fill="#B7791F">PK</text>
+<text x="470" y="124" font-size="12.5" font-weight="bold" text-decoration="underline" fill="#14263a">id_client</text>
+<text x="752" y="124" font-size="10.5" text-anchor="end" fill="#566476">INT AUTO_INCREMENT</text>
+<rect x="421" y="130" width="338" height="19" fill="#F2F6FB"/>
+<text x="428" y="143" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="143" font-size="12.5"  fill="#14263a">nom</text>
+<text x="752" y="143" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(50)</text>
+<text x="428" y="162" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="162" font-size="12.5"  fill="#14263a">prenom</text>
+<text x="752" y="162" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(50)</text>
+<rect x="421" y="168" width="338" height="19" fill="#F2F6FB"/>
+<text x="428" y="181" font-size="10" font-weight="bold" fill="#7a8796">UK</text>
+<text x="470" y="181" font-size="12.5"  fill="#14263a">email<tspan fill="#8a96a3"> ?</tspan></text>
+<text x="752" y="181" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(100)</text>
+<text x="428" y="200" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="200" font-size="12.5"  fill="#14263a">telephone<tspan fill="#8a96a3"> ?</tspan></text>
+<text x="752" y="200" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(20)</text>
+<rect x="421" y="206" width="338" height="19" fill="#F2F6FB"/>
+<text x="428" y="219" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="219" font-size="12.5"  fill="#14263a">adresse<tspan fill="#8a96a3"> ?</tspan></text>
+<text x="752" y="219" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(255)</text>
+<rect x="810" y="80" width="340" height="245" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M810.7 110 V85 Q810.7 80.7 815 80.7 H1145 Q1149.3 80.7 1149.3 85 V110 Z" fill="#1F4E79"/>
+<text x="820" y="100" font-size="14" font-weight="bold" fill="#fff">bill</text>
+<text x="818" y="124" font-size="10" font-weight="bold" fill="#B7791F">PK</text>
+<text x="860" y="124" font-size="12.5" font-weight="bold" text-decoration="underline" fill="#14263a">id_bill</text>
+<text x="1142" y="124" font-size="10.5" text-anchor="end" fill="#566476">INT AUTO_INCREMENT</text>
+<rect x="811" y="130" width="338" height="19" fill="#F2F6FB"/>
+<text x="818" y="143" font-size="10" font-weight="bold" fill="#7a8796">UK</text>
+<text x="860" y="143" font-size="12.5"  fill="#14263a">reference</text>
+<text x="1142" y="143" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(40)</text>
+<text x="818" y="162" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="162" font-size="12.5"  fill="#14263a">provider</text>
+<text x="1142" y="162" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(100)</text>
+<rect x="811" y="168" width="338" height="19" fill="#F2F6FB"/>
+<text x="818" y="181" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="181" font-size="12.5"  fill="#14263a">category</text>
+<text x="1142" y="181" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(20)  CHECK</text>
+<text x="818" y="200" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="200" font-size="12.5"  fill="#14263a">amount</text>
+<text x="1142" y="200" font-size="10.5" text-anchor="end" fill="#566476">DECIMAL(15,2)  &gt; 0</text>
+<rect x="811" y="206" width="338" height="19" fill="#F2F6FB"/>
+<text x="818" y="219" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="219" font-size="12.5"  fill="#14263a">issue_date</text>
+<text x="1142" y="219" font-size="10.5" text-anchor="end" fill="#566476">DATE</text>
+<text x="818" y="238" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="238" font-size="12.5"  fill="#14263a">due_date</text>
+<text x="1142" y="238" font-size="10.5" text-anchor="end" fill="#566476">DATE  &gt;= issue_date</text>
+<rect x="811" y="244" width="338" height="19" fill="#F2F6FB"/>
+<text x="818" y="257" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="257" font-size="12.5"  fill="#14263a">status</text>
+<text x="1142" y="257" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(20)  UNPAID|PAID|CANCELLED</text>
+<text x="818" y="276" font-size="10" font-weight="bold" fill="#2a6db5">FK</text>
+<text x="860" y="276" font-size="12.5"  fill="#14263a">id_client</text>
+<text x="1142" y="276" font-size="10.5" text-anchor="end" fill="#566476">INT</text>
+<rect x="811" y="282" width="338" height="19" fill="#F2F6FB"/>
+<text x="818" y="295" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="295" font-size="12.5"  fill="#14263a">created_at</text>
+<text x="1142" y="295" font-size="10.5" text-anchor="end" fill="#566476">DATETIME</text>
+<text x="818" y="314" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="314" font-size="12.5"  fill="#14263a">paid_at<tspan fill="#8a96a3"> ?</tspan></text>
+<text x="1142" y="314" font-size="10.5" text-anchor="end" fill="#566476">DATETIME</text>
+<rect x="30" y="360" width="340" height="150" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M30.7 390 V365 Q30.7 360.7 35 360.7 H365 Q369.3 360.7 369.3 365 V390 Z" fill="#1F4E79"/>
+<text x="40" y="380" font-size="14" font-weight="bold" fill="#fff">password_reset_token</text>
+<text x="38" y="404" font-size="10" font-weight="bold" fill="#B7791F">PK</text>
+<text x="80" y="404" font-size="12.5" font-weight="bold" text-decoration="underline" fill="#14263a">id</text>
+<text x="362" y="404" font-size="10.5" text-anchor="end" fill="#566476">BIGINT AUTO_INCREMENT</text>
+<rect x="31" y="410" width="338" height="19" fill="#F2F6FB"/>
+<text x="38" y="423" font-size="10" font-weight="bold" fill="#7a8796">UK</text>
+<text x="80" y="423" font-size="12.5"  fill="#14263a">token_hash</text>
+<text x="362" y="423" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(64)  SHA-256</text>
+<text x="38" y="442" font-size="10" font-weight="bold" fill="#2a6db5">FK</text>
+<text x="80" y="442" font-size="12.5"  fill="#14263a">id_utilisateur</text>
+<text x="362" y="442" font-size="10.5" text-anchor="end" fill="#566476">INT  ON DELETE CASCADE</text>
+<rect x="31" y="448" width="338" height="19" fill="#F2F6FB"/>
+<text x="38" y="461" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="80" y="461" font-size="12.5"  fill="#14263a">expiry_date</text>
+<text x="362" y="461" font-size="10.5" text-anchor="end" fill="#566476">DATETIME</text>
+<text x="38" y="480" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="80" y="480" font-size="12.5"  fill="#14263a">used</text>
+<text x="362" y="480" font-size="10.5" text-anchor="end" fill="#566476">TINYINT(1)</text>
+<rect x="31" y="486" width="338" height="19" fill="#F2F6FB"/>
+<text x="38" y="499" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="80" y="499" font-size="12.5"  fill="#14263a">created_at</text>
+<text x="362" y="499" font-size="10.5" text-anchor="end" fill="#566476">DATETIME</text>
+<rect x="30" y="600" width="340" height="150" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M30.7 630 V605 Q30.7 600.7 35 600.7 H365 Q369.3 600.7 369.3 605 V630 Z" fill="#1F4E79"/>
+<text x="40" y="620" font-size="14" font-weight="bold" fill="#fff">account_activation_token</text>
+<text x="38" y="644" font-size="10" font-weight="bold" fill="#B7791F">PK</text>
+<text x="80" y="644" font-size="12.5" font-weight="bold" text-decoration="underline" fill="#14263a">id</text>
+<text x="362" y="644" font-size="10.5" text-anchor="end" fill="#566476">BIGINT AUTO_INCREMENT</text>
+<rect x="31" y="650" width="338" height="19" fill="#F2F6FB"/>
+<text x="38" y="663" font-size="10" font-weight="bold" fill="#7a8796">UK</text>
+<text x="80" y="663" font-size="12.5"  fill="#14263a">token_hash</text>
+<text x="362" y="663" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(64)  SHA-256</text>
+<text x="38" y="682" font-size="10" font-weight="bold" fill="#2a6db5">FK</text>
+<text x="80" y="682" font-size="12.5"  fill="#14263a">id_utilisateur</text>
+<text x="362" y="682" font-size="10.5" text-anchor="end" fill="#566476">INT  ON DELETE CASCADE</text>
+<rect x="31" y="688" width="338" height="19" fill="#F2F6FB"/>
+<text x="38" y="701" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="80" y="701" font-size="12.5"  fill="#14263a">expiry_date</text>
+<text x="362" y="701" font-size="10.5" text-anchor="end" fill="#566476">DATETIME</text>
+<text x="38" y="720" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="80" y="720" font-size="12.5"  fill="#14263a">used</text>
+<text x="362" y="720" font-size="10.5" text-anchor="end" fill="#566476">TINYINT(1)</text>
+<rect x="31" y="726" width="338" height="19" fill="#F2F6FB"/>
+<text x="38" y="739" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="80" y="739" font-size="12.5"  fill="#14263a">created_at</text>
+<text x="362" y="739" font-size="10.5" text-anchor="end" fill="#566476">DATETIME</text>
+<rect x="420" y="360" width="340" height="207" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M420.7 390 V365 Q420.7 360.7 425 360.7 H755 Q759.3 360.7 759.3 365 V390 Z" fill="#1F4E79"/>
+<text x="430" y="380" font-size="14" font-weight="bold" fill="#fff">compte_bancaire</text>
+<text x="428" y="404" font-size="10" font-weight="bold" fill="#B7791F">PK</text>
+<text x="470" y="404" font-size="12.5" font-weight="bold" text-decoration="underline" fill="#14263a">id_compte</text>
+<text x="752" y="404" font-size="10.5" text-anchor="end" fill="#566476">INT AUTO_INCREMENT</text>
+<rect x="421" y="410" width="338" height="19" fill="#F2F6FB"/>
+<text x="428" y="423" font-size="10" font-weight="bold" fill="#7a8796">UK</text>
+<text x="470" y="423" font-size="12.5"  fill="#14263a">numero</text>
+<text x="752" y="423" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(30)</text>
+<text x="428" y="442" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="442" font-size="12.5"  fill="#14263a">solde</text>
+<text x="752" y="442" font-size="10.5" text-anchor="end" fill="#566476">DECIMAL(15,2)  &gt;= -decouvert</text>
+<rect x="421" y="448" width="338" height="19" fill="#F2F6FB"/>
+<text x="428" y="461" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="461" font-size="12.5"  fill="#14263a">type_compte</text>
+<text x="752" y="461" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(20)  COURANT|EPARGNE</text>
+<text x="428" y="480" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="480" font-size="12.5"  fill="#14263a">decouvert_autorise</text>
+<text x="752" y="480" font-size="10.5" text-anchor="end" fill="#566476">DECIMAL(15,2)  &gt;= 0</text>
+<rect x="421" y="486" width="338" height="19" fill="#F2F6FB"/>
+<text x="428" y="499" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="499" font-size="12.5"  fill="#14263a">taux_interet</text>
+<text x="752" y="499" font-size="10.5" text-anchor="end" fill="#566476">DECIMAL(5,2)  &gt;= 0</text>
+<text x="428" y="518" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="518" font-size="12.5"  fill="#14263a">date_creation</text>
+<text x="752" y="518" font-size="10.5" text-anchor="end" fill="#566476">DATE</text>
+<rect x="421" y="524" width="338" height="19" fill="#F2F6FB"/>
+<text x="428" y="537" font-size="10" font-weight="bold" fill="#2a6db5">FK</text>
+<text x="470" y="537" font-size="12.5"  fill="#14263a">id_client</text>
+<text x="752" y="537" font-size="10.5" text-anchor="end" fill="#566476">INT</text>
+<text x="428" y="556" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="556" font-size="12.5"  fill="#14263a">statut</text>
+<text x="752" y="556" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(20)  ACTIVE|CLOSED</text>
+<rect x="810" y="430" width="340" height="188" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M810.7 460 V435 Q810.7 430.7 815 430.7 H1145 Q1149.3 430.7 1149.3 435 V460 Z" fill="#1F4E79"/>
+<text x="820" y="450" font-size="14" font-weight="bold" fill="#fff">bill_payment</text>
+<text x="818" y="474" font-size="10" font-weight="bold" fill="#B7791F">PK</text>
+<text x="860" y="474" font-size="12.5" font-weight="bold" text-decoration="underline" fill="#14263a">id_bill_payment</text>
+<text x="1142" y="474" font-size="10.5" text-anchor="end" fill="#566476">INT AUTO_INCREMENT</text>
+<rect x="811" y="480" width="338" height="19" fill="#F2F6FB"/>
+<text x="818" y="493" font-size="10" font-weight="bold" fill="#7a8796">UK</text>
+<text x="860" y="493" font-size="12.5"  fill="#14263a">reference</text>
+<text x="1142" y="493" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(40)</text>
+<text x="818" y="512" font-size="10" font-weight="bold" fill="#2a6db5">FK UK</text>
+<text x="860" y="512" font-size="12.5"  fill="#14263a">id_bill</text>
+<text x="1142" y="512" font-size="10.5" text-anchor="end" fill="#566476">INT</text>
+<rect x="811" y="518" width="338" height="19" fill="#F2F6FB"/>
+<text x="818" y="531" font-size="10" font-weight="bold" fill="#2a6db5">FK</text>
+<text x="860" y="531" font-size="12.5"  fill="#14263a">id_compte</text>
+<text x="1142" y="531" font-size="10.5" text-anchor="end" fill="#566476">INT</text>
+<text x="818" y="550" font-size="10" font-weight="bold" fill="#2a6db5">FK UK</text>
+<text x="860" y="550" font-size="12.5"  fill="#14263a">id_transaction</text>
+<text x="1142" y="550" font-size="10.5" text-anchor="end" fill="#566476">INT</text>
+<rect x="811" y="556" width="338" height="19" fill="#F2F6FB"/>
+<text x="818" y="569" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="569" font-size="12.5"  fill="#14263a">amount</text>
+<text x="1142" y="569" font-size="10.5" text-anchor="end" fill="#566476">DECIMAL(15,2)  &gt; 0</text>
+<text x="818" y="588" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="588" font-size="12.5"  fill="#14263a">payment_date</text>
+<text x="1142" y="588" font-size="10.5" text-anchor="end" fill="#566476">DATETIME</text>
+<rect x="811" y="594" width="338" height="19" fill="#F2F6FB"/>
+<text x="818" y="607" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="860" y="607" font-size="12.5"  fill="#14263a">status</text>
+<text x="1142" y="607" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(20)  COMPLETED</text>
+<rect x="420" y="680" width="470" height="188" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M420.7 710 V685 Q420.7 680.7 425 680.7 H885 Q889.3 680.7 889.3 685 V710 Z" fill="#1F4E79"/>
+<text x="430" y="700" font-size="14" font-weight="bold" fill="#fff">transaction_bancaire</text>
+<text x="428" y="724" font-size="10" font-weight="bold" fill="#B7791F">PK</text>
+<text x="470" y="724" font-size="12.5" font-weight="bold" text-decoration="underline" fill="#14263a">id_transaction</text>
+<text x="882" y="724" font-size="10.5" text-anchor="end" fill="#566476">INT AUTO_INCREMENT</text>
+<rect x="421" y="730" width="468" height="19" fill="#F2F6FB"/>
+<text x="428" y="743" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="743" font-size="12.5"  fill="#14263a">type_transaction</text>
+<text x="882" y="743" font-size="10.5" text-anchor="end" fill="#566476">ENUM  DEPOT|RETRAIT|VIREMENT|PAIEMENT_FACTURE</text>
+<text x="428" y="762" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="762" font-size="12.5"  fill="#14263a">montant</text>
+<text x="882" y="762" font-size="10.5" text-anchor="end" fill="#566476">DECIMAL(15,2)  &gt; 0</text>
+<rect x="421" y="768" width="468" height="19" fill="#F2F6FB"/>
+<text x="428" y="781" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="781" font-size="12.5"  fill="#14263a">date_transaction</text>
+<text x="882" y="781" font-size="10.5" text-anchor="end" fill="#566476">DATETIME</text>
+<text x="428" y="800" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="800" font-size="12.5"  fill="#14263a">description<tspan fill="#8a96a3"> ?</tspan></text>
+<text x="882" y="800" font-size="10.5" text-anchor="end" fill="#566476">VARCHAR(255)</text>
+<rect x="421" y="806" width="468" height="19" fill="#F2F6FB"/>
+<text x="428" y="819" font-size="10" font-weight="bold" fill="#7a8796"></text>
+<text x="470" y="819" font-size="12.5"  fill="#14263a">statut</text>
+<text x="882" y="819" font-size="10.5" text-anchor="end" fill="#566476">ENUM  VALIDEE|REFUSEE</text>
+<text x="428" y="838" font-size="10" font-weight="bold" fill="#2a6db5">FK</text>
+<text x="470" y="838" font-size="12.5"  fill="#14263a">id_compte_source<tspan fill="#8a96a3"> ?</tspan></text>
+<text x="882" y="838" font-size="10.5" text-anchor="end" fill="#566476">INT</text>
+<rect x="421" y="844" width="468" height="19" fill="#F2F6FB"/>
+<text x="428" y="857" font-size="10" font-weight="bold" fill="#2a6db5">FK</text>
+<text x="470" y="857" font-size="12.5"  fill="#14263a">id_compte_destination<tspan fill="#8a96a3"> ?</tspan></text>
+<text x="882" y="857" font-size="10.5" text-anchor="end" fill="#566476">INT</text>
+<text x="30" y="908" font-size="12" font-weight="bold" fill="#14263a">Legend</text>
+<text x="168" y="908" font-size="11.5" fill="#14263a">exactly one</text>
+<text x="358" y="908" font-size="11.5" fill="#14263a">zero or one</text>
+<text x="548" y="908" font-size="11.5" fill="#14263a">zero or many</text>
+<text x="670" y="908" font-size="11.5" fill="#14263a"><tspan fill="#B7791F" font-weight="bold">PK</tspan> primary key   <tspan fill="#2a6db5" font-weight="bold">FK</tspan> foreign key   <tspan fill="#7a8796" font-weight="bold">UK</tspan> unique   ? nullable</text>
+</svg>

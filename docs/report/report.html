@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BankServices – Project Report</title>
+<style>
+  @page { size: A4; margin: 16mm 16mm 16mm 16mm; }
+  :root { --ink:#14263a; --muted:#566476; --accent:#1F4E79; --soft:#EEF4FB; --line:#d5dde7; --warm:#B7791F; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: "Segoe UI", Arial, Helvetica, sans-serif; color: var(--ink); font-size: 10pt; line-height: 1.4; margin: 0; background:#fff; }
+  h1 { font-size: 25pt; margin: 0 0 4pt; color: var(--accent); letter-spacing: -0.3pt; }
+  h2 { font-size: 14.5pt; color: var(--accent); margin: 14pt 0 6pt; padding-bottom: 3pt; border-bottom: 1.5pt solid var(--accent); }
+  h3 { font-size: 11.3pt; margin: 10pt 0 4pt; color: #173b5c; }
+  p { margin: 0 0 6pt; text-align: justify; }
+  ul { margin: 0 0 6pt 16pt; padding: 0; }
+  li { margin: 0 0 2pt; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 8.9pt; background: var(--soft); padding: 0 2pt; border-radius: 2pt; }
+  pre { font-family: Consolas, "Courier New", monospace; font-size: 8.1pt; line-height: 1.32; background: #f5f7fa; border: 0.6pt solid var(--line); border-left: 3pt solid var(--accent); padding: 5pt 7pt; margin: 4pt 0 7pt; white-space: pre-wrap; break-inside: avoid; }
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 8pt; font-size: 9.2pt; break-inside: avoid; }
+  th, td { border: 0.6pt solid var(--line); padding: 3.5pt 5pt; vertical-align: top; text-align: left; }
+  th { background: var(--soft); color: #173b5c; }
+  .page-break { break-before: page; }
+  .cover { height: 263mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover .band { background: linear-gradient(135deg, #10284a, #2a5fae); color: #fff; padding: 30mm 14mm 16mm; border-radius: 6pt; }
+  .cover .band h1 { color: #fff; font-size: 34pt; }
+  .cover .band .sub { font-size: 14pt; opacity: .92; margin-top: 4pt; }
+  .cover .meta { font-size: 10.5pt; color: var(--muted); }
+  .cover .meta td { border: none; padding: 2pt 8pt 2pt 0; }
+  .toc { columns: 1; font-size: 10.5pt; }
+  .toc li { margin-bottom: 3pt; }
+  figure { margin: 6pt 0 8pt; text-align: center; break-inside: avoid; }
+  figure img { max-width: 100%; border: 0.6pt solid var(--line); border-radius: 3pt; }
+  figcaption { font-size: 8.7pt; color: var(--muted); margin-top: 3pt; font-style: italic; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 7pt; }
+  .grid2 figure { margin: 0 0 2pt; } .grid2 figure img { width: 93%; }
+  .callout { background: var(--soft); border-left: 3pt solid var(--accent); padding: 5pt 8pt; margin: 6pt 0 8pt; font-size: 9.6pt; break-inside: avoid; }
+  .arch { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5pt; margin: 6pt 0 9pt; font-size: 8.8pt; text-align: center; break-inside: avoid; }
+  .arch div { border: 1pt solid var(--accent); border-radius: 4pt; padding: 5pt 4pt; background: #fff; }
+  .arch b { display: block; color: var(--accent); font-size: 9.6pt; margin-bottom: 2pt; }
+  .arch .db { border-color: var(--warm); } .arch .db b { color: var(--warm); }
+  .small { font-size: 8.8pt; color: var(--muted); }
+  .k { font-weight: 600; color: #173b5c; }
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<section class="cover">
+  <div class="band">
+    <div style="font-size:10pt;letter-spacing:2pt;text-transform:uppercase;opacity:.8">Project report</div>
+    <h1>BankServices</h1>
+    <div class="sub">A web banking management application<br>Spring Boot 4 REST API · React 19 · MySQL 8</div>
+  </div>
+  <div>
+    <h2 style="margin-top:0">Contents</h2>
+    <ol class="toc">
+      <li>Presentation of the application</li>
+      <li>Architecture and technical choices</li>
+      <li>Design: UML class diagram</li>
+      <li>Screenshots</li>
+      <li>Quality: unit tests and fictitious test data</li>
+      <li>Comparative analysis of programming paradigms</li>
+      <li>Conclusion and perspectives</li>
+    </ol>
+  </div>
+  <table class="meta">
+    <tr><td class="k">Repository folder</td><td><code>Bank_Services/</code> (backend, frontend, database, docs)</td></tr>
+    <tr><td class="k">Date</td><td>November 2026</td></tr>
+    <tr><td class="k">Test status</td><td>Backend: 451 automated tests (JUnit 5) – 0 failure · Frontend: 32 tests (Vitest) – 0 failure</td></tr>
+  </table>
+</section>
+
+<!-- ============================ 1. PRESENTATION ============================ -->
+<section class="page-break">
+<h2>1. Presentation of the application</h2>
+<h3>1.1 Context and objectives</h3>
+<p><b>BankServices</b> is a web application that digitises the everyday operations of a retail bank branch. It replaces paper forms and spreadsheets with a single, secure platform where bank staff manage customers and accounts, and customers consult their accounts, move money and pay their bills online.</p>
+<p>The project pursued four objectives: (1) model the core banking domain correctly – customers, current and savings accounts, transactions and bills; (2) guarantee the <b>consistency of balances</b> even under concurrent operations; (3) enforce strict <b>role-based security</b> so that a customer can never see or use another customer's money; (4) deliver a modern, responsive interface backed by an automated test suite.</p>
+
+<h3>1.2 Actors and features</h3>
+<table>
+  <tr><th style="width:18%">Actor</th><th>Main features</th></tr>
+  <tr><td><b>Administrator</b><br><span class="small">(bank staff, role ADMIN)</span></td>
+      <td>Dashboard with global indicators (liquidity, clients, accounts, activity breakdown) · create / edit / delete clients · register a client and send an <b>activation e-mail</b> · open current (<i>courant</i>, with authorised overdraft) or savings (<i>épargne</i>, with interest rate) accounts · close / reopen accounts (only with a zero balance) · deposits, withdrawals and transfers for any account · issue and cancel bills, search bills by status, category or reference.</td></tr>
+  <tr><td><b>Client</b><br><span class="small">(customer, role CLIENT)</span></td>
+      <td>Activate the online account through a one-time link and choose a password · personal dashboard · view own accounts and full history · deposits, withdrawals and transfers between own accounts · list unpaid / paid / <b>overdue</b> bills and pay them from an account · payment history and printable receipts · forgotten-password flow.</td></tr>
+  <tr><td><b>System</b></td>
+      <td>E-mail notifications sent <i>after</i> the database commit · rate limiting of sensitive endpoints (login, transfers, bill payments) · automatic database migrations at start-up.</td></tr>
+</table>
+
+<h3>1.3 Main business rules</h3>
+<ul>
+  <li>A <b>withdrawal, transfer or bill payment</b> is refused if the new balance would fall below <code>−decouvertAutorise</code> (overdraft limit; always 0 for savings accounts).</li>
+  <li>A <b>closed account</b> cannot be used for any operation; an account can only be closed when its balance is exactly 0.</li>
+  <li>A transfer requires two different accounts; the amount must be strictly positive with at most two decimals.</li>
+  <li>A bill can be paid <b>only once</b> (service check + <code>UNIQUE</code> constraint on <code>bill_payment.id_bill</code>); a payment debits the account, creates a <code>PAIEMENT_FACTURE</code> transaction and marks the bill <code>PAID</code> in one atomic transaction.</li>
+  <li>An UNPAID bill whose due date has passed is presented as <b>overdue</b> (derived, never stored).</li>
+  <li>Only <code>ACTIVE</code> logins may authenticate; <code>PENDING_ACTIVATION</code> and <code>DISABLED</code> logins are refused with an explicit message.</li>
+</ul>
+
+<!-- ============================ 2. ARCHITECTURE ============================ -->
+<h2>2. Architecture and technical choices</h2>
+<h3>2.1 Overall architecture</h3>
+<p>The application follows a <b>client–server, three-tier architecture</b>. A React single-page application talks over HTTP/JSON to a stateless Spring Boot REST API, which persists data in MySQL. Inside the API, code is organised in classical layers: each layer only depends on the one below it.</p>
+<div class="arch">
+  <div><b>React SPA</b>Pages, components, hooks<br>Axios client + JWT<br><span class="small">port 5173</span></div>
+  <div><b>Controllers</b>REST endpoints <code>/api/**</code><br>DTO validation<br>Security filters (JWT, rate limit)</div>
+  <div><b>Services</b>Business rules<br><code>@Transactional</code><br>events, e-mails</div>
+  <div class="db"><b>Repositories → MySQL</b>Spring Data JPA<br>Hibernate ORM<br>Flyway migrations</div>
+</div>
+
+<h3>2.2 Technology choices and justification</h3>
+<table>
+  <tr><th style="width:22%">Concern</th><th style="width:28%">Choice</th><th>Justification</th></tr>
+  <tr><td>Backend language</td><td>Java 21 (LTS)</td><td>Strong static typing, mature ecosystem, records and modern switch; <code>BigDecimal</code> for exact money arithmetic (no floating-point errors).</td></tr>
+  <tr><td>Backend framework</td><td>Spring Boot 4.1 (Web MVC, Data JPA, Validation, Security, Mail)</td><td>Industry standard; dependency injection, declarative transactions and security reduce boilerplate and errors.</td></tr>
+  <tr><td>Persistence</td><td>MySQL 8 + Hibernate/JPA + Flyway</td><td>Relational model fits banking data (foreign keys, <code>CHECK</code> constraints as a last line of defence). Flyway versions the schema (V1–V3) and creates it automatically on a fresh database.</td></tr>
+  <tr><td>Concurrency</td><td>Pessimistic locks (<code>SELECT … FOR UPDATE</code>)</td><td>Two simultaneous withdrawals cannot both read the same balance; accounts are locked in ascending id order to avoid deadlocks in transfers.</td></tr>
+  <tr><td>Security</td><td>Spring Security, stateless JWT (jjwt), BCrypt</td><td>Stateless tokens suit a SPA; passwords hashed with BCrypt; activation and reset tokens stored only as SHA-256 hashes; ownership checks in services; error responses never leak internals.</td></tr>
+  <tr><td>Abuse protection</td><td>Bucket4j + Caffeine</td><td>Token-bucket rate limiting (HTTP 429 + <code>Retry-After</code>) on login, activation, password reset, transfers and payments.</td></tr>
+  <tr><td>Frontend</td><td>React 19, Vite 8, MUI 9, Tailwind 4, React Router 7, Axios</td><td>Component model and hooks, very fast dev server, accessible ready-made components; Axios interceptors add the JWT and handle 401/429 globally.</td></tr>
+  <tr><td>Tests</td><td>JUnit 5, Mockito, AssertJ, MockMvc, H2; Vitest + Testing Library</td><td>Fast, isolated tests that never touch the real database or SMTP server (in-memory H2, mocked mail sender).</td></tr>
+</table>
+<div class="callout"><b>Design decision – single-table inheritance.</b> <code>CompteCourant</code> and <code>CompteEpargne</code> extend the abstract <code>CompteBancaire</code> and are stored in one table <code>compte_bancaire</code> with a discriminator column <code>type_compte</code>. This keeps queries simple (one table for all balances) while <code>CHECK</code> constraints guarantee that only current accounts have an overdraft and only savings accounts have an interest rate.</div>
+</section>
+
+<!-- ============================ 3. UML ============================ -->
+<section class="page-break">
+<h2>3. Design: UML class diagram</h2>
+<p>The diagram below shows the domain model (JPA entities and enumerations). A <b>Client</b> owns zero or more <b>bank accounts</b> (composition: deleting a client deletes its accounts). An optional <b>Utilisateur</b> is the online login of a client (administrators have no client). A <b>TransactionBancaire</b> references a source account, a destination account or both, depending on its type. A <b>Bill</b> is issued to a client; its <b>BillPayment</b> links the bill, the debited account and the corresponding transaction.</p>
+<figure>
+  <img src="../uml/class-diagram.png" alt="UML class diagram">
+  <figcaption>Figure 1 – UML class diagram of the domain model (source: <code>docs/uml/class-diagram.svg</code>, <code>.puml</code> and <code>.mmd</code>).</figcaption>
+</figure>
+<p>Beyond the entities, the backend contains 7 REST controllers, 12 services, 8 Spring Data repositories, request/response DTOs (entities are never exposed directly), a global exception handler and a rate-limiting module. The layered class diagram is provided in <code>docs/uml/architecture-diagram.puml</code>.</p>
+</section>
+
+<!-- ============================ 4. SCREENSHOTS ============================ -->
+<section class="page-break">
+<h2>4. Screenshots <span class="small" style="font-weight:normal">(running application with the fictitious demo dataset)</span></h2>
+<div class="grid2">
+  <figure><img src="../screenshots/01-home.png"><figcaption>Figure 2 – Public landing page</figcaption></figure>
+  <figure><img src="../screenshots/03-admin-dashboard.png"><figcaption>Figure 3 – Administrator dashboard (global indicators)</figcaption></figure>
+  <figure><img src="../screenshots/04-admin-clients.png"><figcaption>Figure 4 – Client management with online-access status</figcaption></figure>
+  <figure><img src="../screenshots/05-admin-accounts.png"><figcaption>Figure 5 – Bank accounts (current / savings, open / closed)</figcaption></figure>
+  <figure><img src="../screenshots/07-admin-bills.png"><figcaption>Figure 6 – Bill management (administrator)</figcaption></figure>
+  <figure><img src="../screenshots/08-client-dashboard.png"><figcaption>Figure 7 – Client dashboard (user “amina”)</figcaption></figure>
+  <figure><img src="../screenshots/10-client-transactions.png"><figcaption>Figure 8 – New transaction: deposit, withdrawal, transfer</figcaption></figure>
+  <figure><img src="../screenshots/11-client-bills.png"><figcaption>Figure 9 – Client bills: unpaid, paid and overdue</figcaption></figure>
+</div>
+</section>
+
+<!-- ============================ 5. TESTS & DATA ============================ -->
+<section class="page-break">
+<h2>5. Quality: unit tests and fictitious test data</h2>
+<h3>5.1 Automated tests</h3>
+<p>The backend suite contains <b>451 tests</b> (command <code>mvnw test</code>, ≈ 1 min) and the frontend <b>32 tests</b> (<code>npm test</code>); all pass. Tests run against an in-memory H2 database and a mocked mail sender, so they need neither MySQL nor an Internet connection. The principal banking operations are covered by pure unit tests (Mockito) of the service layer: for example <code>transfer_movesAmountAndConservesTotalMoney</code> checks that a transfer of 250.00 leaves the sum of both balances unchanged.</p>
+<table>
+  <tr><th style="width:30%">Test class</th><th>Principal operations verified (examples)</th></tr>
+  <tr><td><code>TransactionServiceTest</code></td><td>Deposit increases the balance · withdrawal within / beyond the overdraft · savings account cannot go below 0 · transfer moves the amount and <b>conserves total money</b> · same-account transfer rejected · closed or unknown account rejected with balances unchanged · accounts locked in ascending id order · client cannot use another client's account · zero/negative/null amount rejected.</td></tr>
+  <tr><td><code>CompteServiceTest</code></td><td>Opening current / savings accounts with defaults · negative overdraft or rate rejected · closing only with zero balance · reopen.</td></tr>
+  <tr><td><code>BillPaymentServiceTest</code></td><td>Payment debits the account, records the transaction, marks the bill PAID and returns a masked receipt · exact balance and overdraft allowed · already paid, cancelled, foreign or unknown bill rejected with nothing changed.</td></tr>
+  <tr><td><code>ClientServiceTest</code>, <code>BillServiceTest</code></td><td>CRUD of clients, unique e-mail, bill creation, cancellation, filters and overdue flag.</td></tr>
+  <tr><td><code>AuthServiceTest</code>, <code>JwtServiceTest</code>, <code>PasswordResetServiceTest</code>, <code>AccountActivationServiceTest</code></td><td>Login with BCrypt, pending/disabled logins refused, JWT generation and validation, single-use expiring tokens.</td></tr>
+  <tr><td>Controller, repository, integration and security tests</td><td>HTTP status codes and validation (MockMvc), JPA mappings and locks, end-to-end flows, SQL-injection and rate-limit tests, concurrent payments of the same bill debit exactly once.</td></tr>
+</table>
+
+<h3>5.2 Fictitious test data</h3>
+<p>The file <code>database/seed_data.sql</code> (identical to the Flyway script <code>db/demo/V100__demo_data.sql</code> loaded automatically with the <code>demo</code> profile) contains invented data designed to exercise every rule: <b>6 clients, 7 logins, 9 accounts, 19 transactions, 9 bills and 2 bill payments</b>. Account balances are consistent with the transaction history.</p>
+<table>
+  <tr><th>Login / password</th><th>Scenario it lets you test</th></tr>
+  <tr><td><code>admin / Admin@2026</code></td><td>Back office: all clients, accounts, transactions and bills.</td></tr>
+  <tr><td><code>amina / Client@2026</code></td><td>Current + savings account; one paid, one unpaid and one <b>overdue</b> bill; transfers between own accounts.</td></tr>
+  <tr><td><code>youssef</code>, <code>sara / Client@2026</code></td><td>Ordinary clients with history and unpaid bills.</td></tr>
+  <tr><td><code>karim / Client@2026</code></td><td>Current account at <b>−300.00</b> (within a 1,500 overdraft) and a <b>closed</b> savings account.</td></tr>
+  <tr><td><code>nadia / Client@2026</code></td><td>Login <b>DISABLED</b>: sign-in refused (HTTP 403).</td></tr>
+  <tr><td><code>omar</code></td><td>Login <b>PENDING_ACTIVATION</b>: the administrator can send an activation e-mail.</td></tr>
+</table>
+</section>
+
+<!-- ============================ 6. PARADIGMS ============================ -->
+<section>
+<h2>6. Comparative analysis of programming paradigms</h2>
+<p>A programming paradigm is a style of structuring programs and reasoning about computation. Modern languages are <b>multi-paradigm</b>: Java and JavaScript both allow imperative, object-oriented, functional and event-driven code. BankServices deliberately combines several paradigms, each where it fits best. This section compares them and shows how each one appears in the project.</p>
+
+<h3>6.1 Overview</h3>
+<table>
+  <tr><th style="width:15%">Paradigm</th><th style="width:25%">Core idea</th><th style="width:30%">Strengths</th><th>Weaknesses</th></tr>
+  <tr><td><b>Imperative / procedural</b></td><td>Sequence of instructions that modify state; code grouped in procedures.</td><td>Close to the machine, easy to follow step by step, efficient.</td><td>Shared mutable state becomes hard to reason about as programs grow; weak modularity.</td></tr>
+  <tr><td><b>Object-oriented (OOP)</b></td><td>Objects bundle data and behaviour; encapsulation, inheritance, polymorphism.</td><td>Models real-world entities naturally; modularity, reuse, maintainability of large systems.</td><td>Deep hierarchies and mutable objects can create coupling; risk of over-engineering.</td></tr>
+  <tr><td><b>Functional</b></td><td>Computation as evaluation of (pure) functions; immutability, higher-order functions.</td><td>Predictable, easily testable, composable; safe for concurrency.</td><td>Learning curve; pure functions alone cannot express I/O and persistent state; may cost memory.</td></tr>
+  <tr><td><b>Declarative</b></td><td>Describe <i>what</i> is wanted, not <i>how</i> (SQL, annotations, JSX).</td><td>Concise, less error-prone; the engine optimises execution.</td><td>Less control; behaviour is hidden in the framework and harder to debug.</td></tr>
+  <tr><td><b>Event-driven</b></td><td>Program flow determined by events and their handlers.</td><td>Loose coupling, reactive user interfaces, asynchronous processing.</td><td>Control flow is implicit; ordering and error handling are harder to follow.</td></tr>
+</table>
+
+<h3>6.2 The paradigms in BankServices</h3>
+<p><b>Object-oriented – the domain model.</b> Entities encapsulate their state behind getters/setters; <code>CompteCourant</code> and <code>CompteEpargne</code> <i>inherit</i> from the abstract <code>CompteBancaire</code>, and services manipulate the abstract type <i>polymorphically</i> (a transfer works on any account). Dependency injection through constructors and interfaces (<code>JpaRepository</code>, <code>RateLimitBucketStore</code>) applies the <i>dependency inversion</i> principle, which is what makes services testable with mocks.</p>
+<p><b>Imperative – the critical algorithms.</b> The money-moving logic is written as explicit sequential steps (lock, check ownership, check status, compute, update), because the order of operations matters for correctness and auditability:</p>
+<pre>BigDecimal newBalance = source.getSolde().subtract(request.getMontant());
+checkAvailableBalance(source, newBalance);   // throws InsufficientBalanceException
+source.setSolde(newBalance);                 // state mutation, inside @Transactional</pre>
+<p><b>Functional – data transformation.</b> Filtering and mapping collections use Java Streams and lambdas, which are side-effect free and read like a pipeline (excerpt of <code>BillService.getClientBills</code>):</p>
+<pre>return billRepository.findByClient_IdClientOrderByDueDateDesc(client.getIdClient()).stream()
+        .filter(bill -> category == null || bill.getCategory() == category)
+        .filter(bill -> referenceFilter == null
+                || bill.getReference().toUpperCase(Locale.ROOT).contains(referenceFilter))
+        .map(bill -> toResponse(bill, paymentsByBill.get(bill.getIdBill())))
+        .toList();</pre>
+<p>On the frontend, React components are <i>functions</i> of their props and state (<code>UI = f(state)</code>); hooks (<code>useState</code>, <code>useMemo</code>, custom <code>useCountUp</code>) and immutable state updates follow the functional style, and helpers such as <code>formatMoney</code> are pure functions, unit-tested with Vitest. Immutable Java <code>record</code>s are used for events.</p>
+<p><b>Declarative – configuration and queries.</b> Behaviour is declared rather than coded: <code>@Transactional</code> (atomicity and rollback), <code>@PreAuthorize</code>/URL rules (security), Bean Validation (<code>@NotNull</code>, <code>@Positive</code>, <code>@Pattern</code>), JPA mappings (<code>@Entity</code>, <code>@Inheritance</code>), JPQL with <code>@Lock(PESSIMISTIC_WRITE)</code>, SQL migrations with <code>CHECK</code> constraints, and JSX describing what the screen should look like.</p>
+<p><b>Event-driven – notifications and UI.</b> Services publish an <code>AccountNotificationEvent</code>; a listener reacts <i>only after the commit</i>, so an e-mail is never sent for a rolled-back operation and a mail failure never cancels a payment:</p>
+<pre>@TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
+public void handleNotification(AccountNotificationEvent event) { notificationService.sendEmail(...); }</pre>
+<p>In the browser, every interaction (click, input, HTTP response, Axios interceptor on 401/429) is handled by event callbacks.</p>
+
+<h3>6.3 Comparison on this project</h3>
+<table>
+  <tr><th style="width:24%">Criterion</th><th>Imperative</th><th>OOP</th><th>Functional</th><th>Declarative</th><th>Event-driven</th></tr>
+  <tr><td>Modelling the bank domain</td><td>Weak</td><td><b>Excellent</b></td><td>Medium</td><td>Good (JPA)</td><td>—</td></tr>
+  <tr><td>Correctness of balances</td><td><b>Explicit control</b></td><td>Good</td><td>Good (no hidden mutation)</td><td><b>Excellent</b> (transactions, constraints)</td><td>Risky if misused</td></tr>
+  <tr><td>Testability</td><td>Medium</td><td>Good (mocks)</td><td><b>Excellent</b></td><td>Needs integration tests</td><td>Medium</td></tr>
+  <tr><td>Concision / readability</td><td>Verbose</td><td>Medium</td><td><b>High</b></td><td><b>High</b></td><td>Medium</td></tr>
+  <tr><td>Decoupling</td><td>Low</td><td>Good</td><td>Good</td><td>Good</td><td><b>Excellent</b></td></tr>
+</table>
+<div class="callout"><b>Conclusion of the analysis.</b> No single paradigm is best: OOP gives BankServices its structure, the imperative style makes critical money operations explicit and auditable, the functional style keeps data transformations and UI rendering predictable and testable, declarative annotations and SQL constraints remove whole classes of bugs (forgotten rollback, unchecked input), and events decouple side effects from business transactions. Choosing the paradigm per problem – rather than per project – is what made the code both safe and maintainable.</div>
+</section>
+
+<!-- ============================ 7. CONCLUSION ============================ -->
+<section>
+<h2>7. Conclusion and perspectives</h2>
+<p>BankServices delivers a complete, tested banking workflow: client and account management, deposits, withdrawals, transfers with overdraft rules, bill issuing and payment with receipts, account activation and password reset, all protected by JWT authentication, ownership checks, rate limiting and database constraints. The layered Spring Boot architecture, the React SPA and the 480+ automated tests make the project easy to run, verify and extend.</p>
+<p><b>Possible improvements:</b> scheduled monthly interest for savings accounts; transfers to other customers with beneficiary validation; pagination of long histories; PDF statement export; a Redis store for rate limits to run several backend instances; Docker Compose packaging and a CI pipeline (GitHub Actions) running both test suites on every push.</p>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="1110" viewBox="0 0 1300 1110" font-family="Arial, Helvetica, sans-serif">
+<defs>
+  <marker id="open" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M1 1 L11 6 L1 11" fill="none" stroke="#1F4E79" stroke-width="1.5"/></marker>
+  <marker id="diamond" viewBox="0 0 20 12" refX="1" refY="6" markerWidth="20" markerHeight="12" orient="auto" markerUnits="userSpaceOnUse"><path d="M1 6 L10 1 L19 6 L10 11 Z" fill="#1F4E79"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="20" y="32" font-size="19" font-weight="bold" fill="#10283f">BankServices — UML class diagram (domain model, package com.bankservices.bankservices_api.entity)</text>
+<path d="M320.0 120.0 L480.0 120.0" fill="none" stroke="#1F4E79" stroke-width="1.4"  marker-end="url(#open)" />
+<text x="328" y="114" font-size="12" text-anchor="start" fill="#1b3a57" >0..1</text>
+<text x="472" y="114" font-size="12" text-anchor="end" fill="#1b3a57" >0..1</text>
+<text x="400" y="136" font-size="12" text-anchor="middle" fill="#1b3a57" font-style="italic" font-weight="bold">login of</text>
+<path d="M620.0 216.0 L620.0 420.0" fill="none" stroke="#1F4E79" stroke-width="1.4"   marker-start="url(#diamond)"/>
+<text x="628" y="244" font-size="12" text-anchor="start" fill="#1b3a57" >1</text>
+<text x="628" y="412" font-size="12" text-anchor="start" fill="#1b3a57" >0..*</text>
+<text x="612" y="330" font-size="12" text-anchor="end" fill="#1b3a57" font-style="italic" font-weight="bold">owns</text>
+<path d="M960.0 120.0 L760.0 120.0" fill="none" stroke="#1F4E79" stroke-width="1.4"  marker-end="url(#open)" />
+<text x="952" y="114" font-size="12" text-anchor="end" fill="#1b3a57" >0..*</text>
+<text x="768" y="114" font-size="12" text-anchor="start" fill="#1b3a57" >1</text>
+<text x="860" y="136" font-size="12" text-anchor="middle" fill="#1b3a57" font-style="italic" font-weight="bold">issued to</text>
+<path d="M1100.0 420.0 L1100.0 250.0" fill="none" stroke="#1F4E79" stroke-width="1.4"  marker-end="url(#open)" />
+<text x="1108" y="412" font-size="12" text-anchor="start" fill="#1b3a57" >0..1</text>
+<text x="1108" y="268" font-size="12" text-anchor="start" fill="#1b3a57" >1</text>
+<text x="1092" y="339" font-size="12" text-anchor="end" fill="#1b3a57" font-style="italic" font-weight="bold">pays</text>
+<path d="M960.0 470.0 L760.0 470.0" fill="none" stroke="#1F4E79" stroke-width="1.4"  marker-end="url(#open)" />
+<text x="952" y="464" font-size="12" text-anchor="end" fill="#1b3a57" >0..*</text>
+<text x="768" y="464" font-size="12" text-anchor="start" fill="#1b3a57" >1</text>
+<text x="860" y="486" font-size="12" text-anchor="middle" fill="#1b3a57" font-style="italic" font-weight="bold">debits</text>
+<path d="M1100.0 542.0 L1100.0 700.0" fill="none" stroke="#1F4E79" stroke-width="1.4"  marker-end="url(#open)" />
+<text x="1108" y="560" font-size="12" text-anchor="start" fill="#1b3a57" >0..1</text>
+<text x="1108" y="692" font-size="12" text-anchor="start" fill="#1b3a57" >1</text>
+<text x="1092" y="625" font-size="12" text-anchor="end" fill="#1b3a57" font-style="italic" font-weight="bold">recorded as</text>
+<path d="M960.0 740.0 L830.0 740.0 L830.0 554.0 L760.0 554.0" fill="none" stroke="#1F4E79" stroke-width="1.4"  marker-end="url(#open)" />
+<path d="M960.0 810.0 L800.0 810.0 L800.0 594.0 L760.0 594.0" fill="none" stroke="#1F4E79" stroke-width="1.4"  marker-end="url(#open)" />
+<text x="952" y="734" font-size="12" text-anchor="end" fill="#1b3a57" >0..*</text>
+<text x="766" y="548" font-size="12" text-anchor="start" fill="#1b3a57" >0..1</text>
+<text x="952" y="804" font-size="12" text-anchor="end" fill="#1b3a57" >0..*</text>
+<text x="766" y="609" font-size="12" text-anchor="start" fill="#1b3a57" >0..1</text>
+<text x="895" y="756" font-size="12" text-anchor="middle" fill="#1b3a57" font-style="italic" font-weight="bold">compteSource</text>
+<text x="898" y="826" font-size="12" text-anchor="middle" fill="#1b3a57" font-style="italic" font-weight="bold">compteDestination</text>
+<path d="M250 760 V687 H580 V760 M620 687 V628" fill="none" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M620 614 L611 628 L629 628 Z" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<text x="608" y="679"  text-anchor="end"  font-size="11" fill="#555">SINGLE_TABLE inheritance (type_compte)</text>
+<path d="M121.0 420.0 L121.0 380.0 L110.0 380.0 L110.0 203.0" fill="none" stroke="#1F4E79" stroke-width="1.4"  marker-end="url(#open)" />
+<text x="127" y="412" font-size="12" text-anchor="start" fill="#1b3a57" >0..*</text>
+<text x="116" y="219" font-size="12" text-anchor="start" fill="#1b3a57" >1</text>
+<path d="M351.0 420.0 L351.0 380.0 L250.0 380.0 L250.0 203.0" fill="none" stroke="#1F4E79" stroke-width="1.4"  marker-end="url(#open)" />
+<text x="357" y="412" font-size="12" text-anchor="start" fill="#1b3a57" >0..*</text>
+<text x="256" y="219" font-size="12" text-anchor="start" fill="#1b3a57" >1</text>
+<g>
+<rect x="40" y="60" width="280" height="143" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M40.7 85 V65 Q40.7 60.7 45 60.7 H315 Q319.3 60.7 319.3 65 V85 Z" fill="#DCE8F5"/>
+<text x="180" y="77" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">Utilisateur</text>
+<line x1="40" y1="85" x2="320" y2="85" stroke="#1F4E79"/>
+<text x="49" y="102" font-size="12.5">- idUtilisateur : Integer</text>
+<text x="49" y="119" font-size="12.5">- username : String</text>
+<text x="49" y="136" font-size="12.5">- password : String «BCrypt»</text>
+<text x="49" y="153" font-size="12.5">- role : String «ADMIN | CLIENT»</text>
+<text x="49" y="170" font-size="12.5">- statut : StatutUtilisateur</text>
+<line x1="40" y1="178" x2="320" y2="178" stroke="#1F4E79"/>
+<text x="49" y="195" font-size="12.5">+ isActive() : boolean</text>
+</g>
+<g>
+<rect x="480" y="60" width="280" height="156" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M480.7 85 V65 Q480.7 60.7 485 60.7 H755 Q759.3 60.7 759.3 65 V85 Z" fill="#DCE8F5"/>
+<text x="620" y="77" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">Client</text>
+<line x1="480" y1="85" x2="760" y2="85" stroke="#1F4E79"/>
+<text x="489" y="102" font-size="12.5">- idClient : Integer</text>
+<text x="489" y="119" font-size="12.5">- nom : String</text>
+<text x="489" y="136" font-size="12.5">- prenom : String</text>
+<text x="489" y="153" font-size="12.5">- email : String</text>
+<text x="489" y="170" font-size="12.5">- telephone : String</text>
+<text x="489" y="187" font-size="12.5">- adresse : String</text>
+<text x="489" y="204" font-size="12.5">- comptes : List&lt;CompteBancaire&gt;</text>
+<line x1="480" y1="212" x2="760" y2="212" stroke="#1F4E79"/>
+</g>
+<g>
+<rect x="960" y="60" width="280" height="190" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M960.7 85 V65 Q960.7 60.7 965 60.7 H1235 Q1239.3 60.7 1239.3 65 V85 Z" fill="#DCE8F5"/>
+<text x="1100" y="77" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">Bill</text>
+<line x1="960" y1="85" x2="1240" y2="85" stroke="#1F4E79"/>
+<text x="969" y="102" font-size="12.5">- idBill : Integer</text>
+<text x="969" y="119" font-size="12.5">- reference : String</text>
+<text x="969" y="136" font-size="12.5">- provider : String</text>
+<text x="969" y="153" font-size="12.5">- category : BillCategory</text>
+<text x="969" y="170" font-size="12.5">- amount : BigDecimal</text>
+<text x="969" y="187" font-size="12.5">- issueDate : LocalDate</text>
+<text x="969" y="204" font-size="12.5">- dueDate : LocalDate</text>
+<text x="969" y="221" font-size="12.5">- status : BillStatus</text>
+<text x="969" y="238" font-size="12.5">- paidAt : LocalDateTime</text>
+<line x1="960" y1="246" x2="1240" y2="246" stroke="#1F4E79"/>
+</g>
+<g>
+<rect x="480" y="420" width="280" height="194" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M480.7 462 V425 Q480.7 420.7 485 420.7 H755 Q759.3 420.7 759.3 425 V462 Z" fill="#DCE8F5"/>
+<text x="620" y="437" text-anchor="middle" font-size="11" fill="#444">«abstract»</text>
+<text x="620" y="454" text-anchor="middle" font-weight="bold" font-size="13.5" font-style="italic" fill="#10283f">CompteBancaire</text>
+<line x1="480" y1="462" x2="760" y2="462" stroke="#1F4E79"/>
+<text x="489" y="479" font-size="12.5">- idCompte : Integer</text>
+<text x="489" y="496" font-size="12.5">- numero : String</text>
+<text x="489" y="513" font-size="12.5">- solde : BigDecimal</text>
+<text x="489" y="530" font-size="12.5">- decouvertAutorise : BigDecimal</text>
+<text x="489" y="547" font-size="12.5">- tauxInteret : BigDecimal</text>
+<text x="489" y="564" font-size="12.5">- dateCreation : LocalDate</text>
+<text x="489" y="581" font-size="12.5">- statut : StatutCompte</text>
+<line x1="480" y1="589" x2="760" y2="589" stroke="#1F4E79"/>
+<text x="489" y="606" font-size="12.5"># initialiserDateCreation() : void</text>
+</g>
+<g>
+<rect x="960" y="420" width="280" height="122" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M960.7 445 V425 Q960.7 420.7 965 420.7 H1235 Q1239.3 420.7 1239.3 425 V445 Z" fill="#DCE8F5"/>
+<text x="1100" y="437" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">BillPayment</text>
+<line x1="960" y1="445" x2="1240" y2="445" stroke="#1F4E79"/>
+<text x="969" y="462" font-size="12.5">- idBillPayment : Integer</text>
+<text x="969" y="479" font-size="12.5">- reference : String</text>
+<text x="969" y="496" font-size="12.5">- amount : BigDecimal</text>
+<text x="969" y="513" font-size="12.5">- paymentDate : LocalDateTime</text>
+<text x="969" y="530" font-size="12.5">- status : BillPaymentStatus</text>
+<line x1="960" y1="538" x2="1240" y2="538" stroke="#1F4E79"/>
+</g>
+<g>
+<rect x="960" y="700" width="280" height="139" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M960.7 725 V705 Q960.7 700.7 965 700.7 H1235 Q1239.3 700.7 1239.3 705 V725 Z" fill="#DCE8F5"/>
+<text x="1100" y="717" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">TransactionBancaire</text>
+<line x1="960" y1="725" x2="1240" y2="725" stroke="#1F4E79"/>
+<text x="969" y="742" font-size="12.5">- idTransaction : Integer</text>
+<text x="969" y="759" font-size="12.5">- typeTransaction : TypeTransaction</text>
+<text x="969" y="776" font-size="12.5">- montant : BigDecimal</text>
+<text x="969" y="793" font-size="12.5">- dateTransaction : LocalDateTime</text>
+<text x="969" y="810" font-size="12.5">- description : String</text>
+<text x="969" y="827" font-size="12.5">- statut : StatutTransaction</text>
+<line x1="960" y1="835" x2="1240" y2="835" stroke="#1F4E79"/>
+</g>
+<g>
+<rect x="14" y="420" width="214" height="105" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M14.7 445 V425 Q14.7 420.7 19 420.7 H223 Q227.3 420.7 227.3 425 V445 Z" fill="#DCE8F5"/>
+<text x="121" y="437" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">AccountActivationToken</text>
+<line x1="14" y1="445" x2="228" y2="445" stroke="#1F4E79"/>
+<text x="23" y="462" font-size="12.5">- id : Long</text>
+<text x="23" y="479" font-size="12.5">- tokenHash : String «SHA-256»</text>
+<text x="23" y="496" font-size="12.5">- expiryDate : LocalDateTime</text>
+<text x="23" y="513" font-size="12.5">- used : boolean</text>
+<line x1="14" y1="521" x2="228" y2="521" stroke="#1F4E79"/>
+</g>
+<g>
+<rect x="244" y="420" width="214" height="105" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M244.7 445 V425 Q244.7 420.7 249 420.7 H453 Q457.3 420.7 457.3 425 V445 Z" fill="#DCE8F5"/>
+<text x="351" y="437" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">PasswordResetToken</text>
+<line x1="244" y1="445" x2="458" y2="445" stroke="#1F4E79"/>
+<text x="253" y="462" font-size="12.5">- id : Long</text>
+<text x="253" y="479" font-size="12.5">- tokenHash : String «SHA-256»</text>
+<text x="253" y="496" font-size="12.5">- expiryDate : LocalDateTime</text>
+<text x="253" y="513" font-size="12.5">- used : boolean</text>
+<line x1="244" y1="521" x2="458" y2="521" stroke="#1F4E79"/>
+</g>
+<g>
+<rect x="100" y="760" width="300" height="88" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M100.7 802 V765 Q100.7 760.7 105 760.7 H395 Q399.3 760.7 399.3 765 V802 Z" fill="#DCE8F5"/>
+<text x="250" y="777" text-anchor="middle" font-size="11" fill="#444">«DiscriminatorValue COURANT»</text>
+<text x="250" y="794" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">CompteCourant</text>
+<line x1="100" y1="802" x2="400" y2="802" stroke="#1F4E79"/>
+<line x1="100" y1="806" x2="400" y2="806" stroke="#1F4E79"/>
+<text x="109" y="823" font-size="12.5">+ getDecouvertAutoriseCourant() : BigDecimal</text>
+<text x="109" y="840" font-size="12.5">+ setDecouvertAutoriseCourant(m : BigDecimal)</text>
+</g>
+<g>
+<rect x="430" y="760" width="300" height="88" rx="5" fill="#fff" stroke="#1F4E79" stroke-width="1.4"/>
+<path d="M430.7 802 V765 Q430.7 760.7 435 760.7 H725 Q729.3 760.7 729.3 765 V802 Z" fill="#DCE8F5"/>
+<text x="580" y="777" text-anchor="middle" font-size="11" fill="#444">«DiscriminatorValue EPARGNE»</text>
+<text x="580" y="794" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">CompteEpargne</text>
+<line x1="430" y1="802" x2="730" y2="802" stroke="#1F4E79"/>
+<line x1="430" y1="806" x2="730" y2="806" stroke="#1F4E79"/>
+<text x="439" y="823" font-size="12.5">+ getTauxInteretEpargne() : BigDecimal</text>
+<text x="439" y="840" font-size="12.5">+ setTauxInteretEpargne(t : BigDecimal)</text>
+</g>
+<rect x="8" y="926" width="1280" height="175" rx="8" fill="none" stroke="#B7791F" stroke-dasharray="5 4"/>
+<text x="20" y="946" font-size="12" fill="#8a5a12" font-weight="bold">package enums  (used as attribute types; stored as strings with @Enumerated(STRING))</text>
+<g>
+<rect x="20" y="960" width="150" height="118" rx="5" fill="#fff" stroke="#B7791F" stroke-width="1.4"/>
+<path d="M20.7 1002 V965 Q20.7 960.7 25 960.7 H165 Q169.3 960.7 169.3 965 V1002 Z" fill="#FFF3DC"/>
+<text x="95" y="977" text-anchor="middle" font-size="11" fill="#444">«enumeration»</text>
+<text x="95" y="994" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">TypeTransaction</text>
+<line x1="20" y1="1002" x2="170" y2="1002" stroke="#B7791F"/>
+<text x="29" y="1019" font-size="12.5">DEPOT</text>
+<text x="29" y="1036" font-size="12.5">RETRAIT</text>
+<text x="29" y="1053" font-size="12.5">VIREMENT</text>
+<text x="29" y="1070" font-size="12.5">PAIEMENT_FACTURE</text>
+</g>
+<g>
+<rect x="178" y="960" width="150" height="84" rx="5" fill="#fff" stroke="#B7791F" stroke-width="1.4"/>
+<path d="M178.7 1002 V965 Q178.7 960.7 183 960.7 H323 Q327.3 960.7 327.3 965 V1002 Z" fill="#FFF3DC"/>
+<text x="253" y="977" text-anchor="middle" font-size="11" fill="#444">«enumeration»</text>
+<text x="253" y="994" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">StatutTransaction</text>
+<line x1="178" y1="1002" x2="328" y2="1002" stroke="#B7791F"/>
+<text x="187" y="1019" font-size="12.5">VALIDEE</text>
+<text x="187" y="1036" font-size="12.5">REFUSEE</text>
+</g>
+<g>
+<rect x="336" y="960" width="150" height="84" rx="5" fill="#fff" stroke="#B7791F" stroke-width="1.4"/>
+<path d="M336.7 1002 V965 Q336.7 960.7 341 960.7 H481 Q485.3 960.7 485.3 965 V1002 Z" fill="#FFF3DC"/>
+<text x="411" y="977" text-anchor="middle" font-size="11" fill="#444">«enumeration»</text>
+<text x="411" y="994" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">TypeCompte</text>
+<line x1="336" y1="1002" x2="486" y2="1002" stroke="#B7791F"/>
+<text x="345" y="1019" font-size="12.5">COURANT</text>
+<text x="345" y="1036" font-size="12.5">EPARGNE</text>
+</g>
+<g>
+<rect x="494" y="960" width="150" height="84" rx="5" fill="#fff" stroke="#B7791F" stroke-width="1.4"/>
+<path d="M494.7 1002 V965 Q494.7 960.7 499 960.7 H639 Q643.3 960.7 643.3 965 V1002 Z" fill="#FFF3DC"/>
+<text x="569" y="977" text-anchor="middle" font-size="11" fill="#444">«enumeration»</text>
+<text x="569" y="994" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">StatutCompte</text>
+<line x1="494" y1="1002" x2="644" y2="1002" stroke="#B7791F"/>
+<text x="503" y="1019" font-size="12.5">ACTIVE</text>
+<text x="503" y="1036" font-size="12.5">CLOSED</text>
+</g>
+<g>
+<rect x="652" y="960" width="150" height="101" rx="5" fill="#fff" stroke="#B7791F" stroke-width="1.4"/>
+<path d="M652.7 1002 V965 Q652.7 960.7 657 960.7 H797 Q801.3 960.7 801.3 965 V1002 Z" fill="#FFF3DC"/>
+<text x="727" y="977" text-anchor="middle" font-size="11" fill="#444">«enumeration»</text>
+<text x="727" y="994" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">StatutUtilisateur</text>
+<line x1="652" y1="1002" x2="802" y2="1002" stroke="#B7791F"/>
+<text x="661" y="1019" font-size="12.5">PENDING_ACTIVATION</text>
+<text x="661" y="1036" font-size="12.5">ACTIVE</text>
+<text x="661" y="1053" font-size="12.5">DISABLED</text>
+</g>
+<g>
+<rect x="810" y="960" width="150" height="135" rx="5" fill="#fff" stroke="#B7791F" stroke-width="1.4"/>
+<path d="M810.7 1002 V965 Q810.7 960.7 815 960.7 H955 Q959.3 960.7 959.3 965 V1002 Z" fill="#FFF3DC"/>
+<text x="885" y="977" text-anchor="middle" font-size="11" fill="#444">«enumeration»</text>
+<text x="885" y="994" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">BillCategory</text>
+<line x1="810" y1="1002" x2="960" y2="1002" stroke="#B7791F"/>
+<text x="819" y="1019" font-size="12.5">ELECTRICITY</text>
+<text x="819" y="1036" font-size="12.5">WATER</text>
+<text x="819" y="1053" font-size="12.5">INTERNET</text>
+<text x="819" y="1070" font-size="12.5">TELEPHONE</text>
+<text x="819" y="1087" font-size="12.5">OTHER</text>
+</g>
+<g>
+<rect x="968" y="960" width="150" height="101" rx="5" fill="#fff" stroke="#B7791F" stroke-width="1.4"/>
+<path d="M968.7 1002 V965 Q968.7 960.7 973 960.7 H1113 Q1117.3 960.7 1117.3 965 V1002 Z" fill="#FFF3DC"/>
+<text x="1043" y="977" text-anchor="middle" font-size="11" fill="#444">«enumeration»</text>
+<text x="1043" y="994" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">BillStatus</text>
+<line x1="968" y1="1002" x2="1118" y2="1002" stroke="#B7791F"/>
+<text x="977" y="1019" font-size="12.5">UNPAID</text>
+<text x="977" y="1036" font-size="12.5">PAID</text>
+<text x="977" y="1053" font-size="12.5">CANCELLED</text>
+</g>
+<g>
+<rect x="1126" y="960" width="150" height="67" rx="5" fill="#fff" stroke="#B7791F" stroke-width="1.4"/>
+<path d="M1126.7 1002 V965 Q1126.7 960.7 1131 960.7 H1271 Q1275.3 960.7 1275.3 965 V1002 Z" fill="#FFF3DC"/>
+<text x="1201" y="977" text-anchor="middle" font-size="11" fill="#444">«enumeration»</text>
+<text x="1201" y="994" text-anchor="middle" font-weight="bold" font-size="13.5"  fill="#10283f">BillPaymentStatus</text>
+<line x1="1126" y1="1002" x2="1276" y2="1002" stroke="#B7791F"/>
+<text x="1135" y="1019" font-size="12.5">COMPLETED</text>
+</g>
+</svg>

@@ -1,0 +1,443 @@
+/* =========================================================
+   BANKSERVICES – MOTION SYSTEM
+   Every animation in the app is defined here so timing and
+   easing stay consistent. Only `opacity` and `transform` are
+   animated (GPU-friendly, no layout shift). Everything is
+   disabled when the user prefers reduced motion (bottom).
+
+   1. Tokens & keyframes      6. Tables, chips, results
+   2. Page entrance           7. Forms, alerts, dialogs
+   3. Navigation              8. Authentication pages
+   4. Buttons & icons         9. Home page
+   5. Cards & dashboard      10. Theme switch + reduced motion
+========================================================= */
+
+/* ---------------------------------------------------------
+   1. TOKENS & KEYFRAMES
+--------------------------------------------------------- */
+
+:root {
+    --motion-fast: 120ms;
+    --motion-base: 200ms;
+    --motion-slow: 320ms;
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+    --stagger-step: 50ms;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes fade-down {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes scale-in {
+    from { opacity: 0; transform: scale(0.96) translateY(6px); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes pop {
+    0%   { transform: scale(0.6); opacity: 0; }
+    60%  { transform: scale(1.12); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes chip-in {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes icon-swap {
+    from { opacity: 0; transform: rotate(-45deg) scale(0.7); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes grow-x {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+}
+
+/* ---------------------------------------------------------
+   2. PAGE ENTRANCE
+   Top-level blocks of a page rise in one after another.
+   Pages only remount on navigation, so data refreshes do
+   not replay the effect.
+--------------------------------------------------------- */
+
+.page > * {
+    animation: fade-up var(--motion-slow) var(--ease-emphasized) both;
+}
+
+.page > :nth-child(2) { animation-delay: calc(var(--stagger-step) * 1); }
+.page > :nth-child(3) { animation-delay: calc(var(--stagger-step) * 2); }
+.page > :nth-child(4) { animation-delay: calc(var(--stagger-step) * 3); }
+.page > :nth-child(n + 5) { animation-delay: calc(var(--stagger-step) * 4); }
+
+/* ---------------------------------------------------------
+   3. NAVIGATION
+--------------------------------------------------------- */
+
+/* Sliding highlight behind the active sidebar link */
+.sidebar__links {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sidebar__indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 42px;
+    border-radius: 9px;
+    background: var(--bs-navy-raised);
+    pointer-events: none;
+    transition:
+        transform var(--motion-slow) var(--ease-emphasized),
+        opacity var(--motion-base) var(--ease-standard);
+}
+
+.sidebar__indicator::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 9px;
+    bottom: 9px;
+    width: 3px;
+    border-radius: 0 3px 3px 0;
+    background: #8DB4FF;
+}
+
+.sidebar__link {
+    z-index: 1;
+}
+
+.sidebar__link-icon {
+    transition:
+        color var(--motion-fast) ease,
+        transform var(--motion-base) var(--ease-emphasized);
+}
+
+.sidebar__link:hover:not(.is-active) .sidebar__link-icon {
+    transform: translateX(2px);
+}
+
+.sidebar__logout svg {
+    transition: transform var(--motion-base) var(--ease-emphasized);
+}
+
+.sidebar__logout:hover svg {
+    transform: translateX(2px);
+}
+
+/* ---------------------------------------------------------
+   4. BUTTONS & ICONS
+   (hover lift / press effect live in the MUI theme)
+--------------------------------------------------------- */
+
+.MuiButton-endIcon,
+.MuiButton-startIcon {
+    transition: transform var(--motion-base) var(--ease-emphasized);
+}
+
+.MuiButton-root:not(.Mui-disabled):hover .MuiButton-endIcon {
+    transform: translateX(3px);
+}
+
+/* Refresh icon spins while data is loading */
+.is-spinning {
+    animation: spin 0.9s linear infinite;
+}
+
+/* Icons that swap (theme toggle, password visibility) */
+.icon-swap svg {
+    animation: icon-swap var(--motion-base) var(--ease-emphasized);
+}
+
+/* ---------------------------------------------------------
+   5. CARDS & DASHBOARD
+--------------------------------------------------------- */
+
+.stat-grid > * {
+    animation: fade-up var(--motion-slow) var(--ease-emphasized) both;
+}
+
+.stat-grid > :nth-child(1) { animation-delay: 60ms; }
+.stat-grid > :nth-child(2) { animation-delay: 110ms; }
+.stat-grid > :nth-child(3) { animation-delay: 160ms; }
+.stat-grid > :nth-child(4) { animation-delay: 210ms; }
+.stat-grid > :nth-child(n + 5) { animation-delay: 260ms; }
+
+/* Hover uses `translate`, independent of the entrance animation's
+   `transform` (which stays applied through animation-fill-mode). */
+.stat-card {
+    transition:
+        translate var(--motion-base) var(--ease-standard),
+        box-shadow var(--motion-base) var(--ease-standard),
+        border-color var(--motion-base) var(--ease-standard);
+}
+
+@media (hover: hover) {
+    .stat-card:hover {
+        translate: 0 -2px;
+        box-shadow: var(--bs-shadow-md);
+        border-color: var(--bs-border-strong);
+    }
+
+    .stat-card--featured:hover {
+        border-color: transparent;
+        box-shadow: 0 12px 28px rgba(11, 27, 51, 0.28);
+    }
+}
+
+.stat-card__icon {
+    transition: transform var(--motion-base) var(--ease-emphasized);
+}
+
+.stat-card:hover .stat-card__icon {
+    transform: scale(1.06);
+}
+
+/* Breakdown bars grow from the left on first render,
+   then smoothly resize when the data changes. */
+.breakdown__fill {
+    transform-origin: left center;
+    animation: grow-x 700ms var(--ease-emphasized) 200ms both;
+}
+
+.breakdown__row:nth-child(2) .breakdown__fill { animation-delay: 280ms; }
+.breakdown__row:nth-child(3) .breakdown__fill { animation-delay: 360ms; }
+
+/* ---------------------------------------------------------
+   6. TABLES, CHIPS, RESULTS
+   Rows fade in when results first load and every time the
+   search, filters or page change (DataTable re-keys them).
+--------------------------------------------------------- */
+
+.data-rows > tr,
+.data-cards > li {
+    /* Soft start (40% opacity) so fast typing never flickers */
+    animation: row-in 260ms var(--ease-standard) both;
+}
+
+@keyframes row-in {
+    from { opacity: 0.4; transform: translateY(3px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.data-rows > tr:nth-child(2),  .data-cards > li:nth-child(2)  { animation-delay: 25ms; }
+.data-rows > tr:nth-child(3),  .data-cards > li:nth-child(3)  { animation-delay: 50ms; }
+.data-rows > tr:nth-child(4),  .data-cards > li:nth-child(4)  { animation-delay: 75ms; }
+.data-rows > tr:nth-child(5),  .data-cards > li:nth-child(5)  { animation-delay: 100ms; }
+.data-rows > tr:nth-child(6),  .data-cards > li:nth-child(6)  { animation-delay: 125ms; }
+.data-rows > tr:nth-child(7),  .data-cards > li:nth-child(7)  { animation-delay: 150ms; }
+.data-rows > tr:nth-child(n + 8), .data-cards > li:nth-child(n + 8) { animation-delay: 175ms; }
+
+.MuiTableRow-root,
+.data-card {
+    transition: background-color var(--motion-fast) ease;
+}
+
+.data-card:hover {
+    background: var(--bs-surface-hover);
+}
+
+/* Status badges pop in, and again whenever their value changes */
+.status-chip {
+    animation: chip-in var(--motion-base) var(--ease-emphasized) both;
+    transition: background-color var(--motion-base) ease, color var(--motion-base) ease;
+}
+
+.empty-state,
+.loading-state {
+    animation: fade-in var(--motion-slow) var(--ease-standard) both;
+}
+
+/* Re-keyed block that cross-fades when its content changes */
+.swap-in {
+    animation: fade-up var(--motion-base) var(--ease-emphasized) both;
+}
+
+.flow-preview__amount {
+    transition: color var(--motion-base) ease;
+}
+
+/* ---------------------------------------------------------
+   7. FORMS, ALERTS, DIALOGS
+--------------------------------------------------------- */
+
+.MuiOutlinedInput-notchedOutline {
+    transition: border-color var(--motion-base) var(--ease-standard);
+}
+
+.MuiInputAdornment-root svg {
+    transition: color var(--motion-base) ease;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiInputAdornment-positionStart svg {
+    color: var(--bs-primary);
+}
+
+.MuiFormHelperText-root.Mui-error {
+    animation: fade-down var(--motion-base) var(--ease-emphasized) both;
+}
+
+.MuiAlert-root {
+    animation: fade-down var(--motion-slow) var(--ease-emphasized) both;
+}
+
+/* Dialog panel scales in over the fading backdrop; closing uses
+   MUI's built-in fade of both panel and backdrop. */
+.MuiDialog-paper {
+    animation: scale-in 240ms var(--ease-emphasized) both;
+}
+
+.confirm-dialog__icon {
+    animation: pop 360ms var(--ease-emphasized) 80ms both;
+}
+
+.password-checks li {
+    transition: color var(--motion-base) ease;
+}
+
+.password-checks li.is-met svg {
+    animation: pop 320ms var(--ease-emphasized) both;
+}
+
+/* ---------------------------------------------------------
+   8. AUTHENTICATION PAGES
+   The card animates only on the first visit; moving between
+   Login / Forgot / Reset only cross-fades the content.
+--------------------------------------------------------- */
+
+.auth-card--enter {
+    animation: scale-in 420ms var(--ease-emphasized) both;
+}
+
+.auth-panel__content > * {
+    animation: fade-up var(--motion-slow) var(--ease-emphasized) both;
+}
+
+.auth-panel__content > :nth-child(2) { animation-delay: 40ms; }
+.auth-panel__content > :nth-child(3) { animation-delay: 80ms; }
+.auth-panel__content > :nth-child(4) { animation-delay: 120ms; }
+.auth-panel__content > :nth-child(n + 5) { animation-delay: 160ms; }
+
+.auth-panel__icon {
+    animation: pop 420ms var(--ease-emphasized) 60ms both !important;
+}
+
+.auth-brand__body {
+    animation: fade-in 400ms var(--ease-standard) both;
+}
+
+/* ---------------------------------------------------------
+   9. SCROLL REVEAL (homepage visuals live in styles/home.css)
+--------------------------------------------------------- */
+
+/* Scroll reveal (see components/motion/Reveal.jsx) */
+.reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+        opacity 600ms var(--ease-emphasized) var(--reveal-delay, 0ms),
+        transform 600ms var(--ease-emphasized) var(--reveal-delay, 0ms);
+}
+
+.reveal--left  { transform: translateX(-28px); }
+.reveal--right { transform: translateX(28px); }
+.reveal--scale { transform: scale(0.96) translateY(12px); }
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal--stagger,
+.reveal--stagger.reveal--left,
+.reveal--stagger.reveal--right,
+.reveal--stagger.reveal--scale {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal--stagger > * {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+        opacity 560ms var(--ease-emphasized),
+        transform 560ms var(--ease-emphasized),
+        border-color var(--motion-base) ease,
+        box-shadow var(--motion-base) ease;
+}
+
+.reveal--stagger.reveal--right > * { transform: translateX(24px); }
+.reveal--stagger.reveal--left > *  { transform: translateX(-24px); }
+
+.reveal--stagger.is-visible > * {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal--stagger.is-visible > :nth-child(2) { transition-delay: 70ms, 70ms, 0ms, 0ms; }
+.reveal--stagger.is-visible > :nth-child(3) { transition-delay: 140ms, 140ms, 0ms, 0ms; }
+.reveal--stagger.is-visible > :nth-child(4) { transition-delay: 210ms, 210ms, 0ms, 0ms; }
+.reveal--stagger.is-visible > :nth-child(n + 5) { transition-delay: 280ms, 280ms, 0ms, 0ms; }
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* ---------------------------------------------------------
+   10. THEME SWITCH + REDUCED MOTION
+--------------------------------------------------------- */
+
+/* Smooth cross-fade when switching theme (View Transitions API) */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 280ms;
+    animation-timing-function: var(--ease-standard);
+}
+
+/* Fallback: freeze per-element colour transitions for the switch
+   frame, so components do not fade at different speeds. */
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+    transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal--stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .is-spinning {
+        animation: none;
+    }
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
+}

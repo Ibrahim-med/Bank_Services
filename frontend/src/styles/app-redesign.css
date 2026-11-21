@@ -1,0 +1,756 @@
+/* =========================================================
+   BANKSERVICES APP - CIRCLE-INSPIRED DESIGN LAYER
+   Applies the design system (styles/design-tokens.css) to the
+   signed-in application and the authentication pages.
+   Loaded after App.css: it only restyles existing classes, so
+   markup, routes and behaviour are unchanged. Readability
+   first: Inter for data, Outfit for titles, Barlow for labels.
+========================================================= */
+
+/* ---------------------------------------------------------
+   1. SHELL
+--------------------------------------------------------- */
+
+.app-shell {
+    background:
+        radial-gradient(900px 500px at 100% -10%, color-mix(in srgb, var(--bs-sand) 22%, transparent), transparent 70%),
+        var(--bs-bg);
+}
+
+.app-shell__sidebar {
+    width: calc(var(--bs-sidebar-width) + 16px);
+    padding: 14px 0 14px 14px;
+}
+
+.app-shell__content {
+    padding: 22px 36px 56px;
+}
+
+@media (max-width: 899.95px) {
+    .app-shell__content { padding: 18px 20px 44px; }
+}
+
+@media (max-width: 599.95px) {
+    .app-shell__content { padding: 14px 14px 36px; }
+}
+
+/* ---------------------------------------------------------
+   2. SIDEBAR - inset navy panel with a pill highlight
+--------------------------------------------------------- */
+
+.sidebar,
+.app-shell__drawer-paper {
+    background:
+        radial-gradient(320px 260px at 0% 100%, rgba(232, 205, 178, 0.16), transparent 70%),
+        linear-gradient(172deg, #0B1B33 0%, #0F2550 62%, #173A77 100%) !important;
+}
+
+.sidebar {
+    border-right: 0;
+    border-radius: 28px;
+    box-shadow: 0 30px 60px -30px rgba(11, 27, 51, 0.65);
+    padding: 22px 14px 16px;
+}
+
+.app-shell__drawer-paper {
+    border-radius: 0 28px 28px 0;
+}
+
+.app-shell__drawer-paper .sidebar {
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent !important;
+}
+
+.sidebar__brand {
+    padding: 2px 8px 26px;
+}
+
+.sidebar__brand-text strong {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.sidebar__brand-text span {
+    font-family: var(--font-label);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.sidebar__section-label {
+    font-family: var(--font-label);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+}
+
+.sidebar__link {
+    border-radius: 999px;
+    padding: 0 16px;
+}
+
+.sidebar__link:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.sidebar__link.is-active .sidebar__link-icon {
+    color: #E8CDB2;
+}
+
+/* Sliding pill (element styled in motion.css) */
+.sidebar__indicator {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.sidebar__indicator::before {
+    left: auto;
+    right: 14px;
+    top: 50%;
+    bottom: auto;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #E8CDB2;
+    transform: translateY(-50%);
+}
+
+.sidebar__footer {
+    border-top: 1px dashed rgba(255, 255, 255, 0.16);
+}
+
+.sidebar__avatar {
+    border: 0;
+    background: #E8CDB2;
+    color: #14213D;
+    font-family: var(--font-display);
+    font-weight: 500;
+}
+
+.sidebar__logout {
+    border-radius: 999px;
+    border-color: rgba(255, 255, 255, 0.16);
+    justify-content: center;
+    font-family: var(--font-label);
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   3. TOP BAR
+--------------------------------------------------------- */
+
+.topbar {
+    height: 68px;
+    padding: 0 36px;
+    background: color-mix(in srgb, var(--bs-bg) 80%, transparent);
+    border-bottom: 1px dashed transparent;
+    transition: border-color 0.3s ease;
+}
+
+.topbar__crumbs {
+    font-family: var(--font-label);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.topbar__brand {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.topbar__role {
+    padding: 6px 14px;
+    background: var(--bs-sand-soft);
+    color: var(--bs-text);
+    font-family: var(--font-label);
+    font-size: 13px;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.theme-toggle {
+    border-radius: 50% !important;
+    width: 42px;
+    height: 42px;
+}
+
+@media (max-width: 899.95px) {
+    .topbar { padding: 0 16px 0 12px; }
+}
+
+/* ---------------------------------------------------------
+   4. PAGE HEADER
+--------------------------------------------------------- */
+
+.page {
+    gap: 26px;
+}
+
+.page-header {
+    padding-top: 6px;
+}
+
+.page-header__title {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 1.4rem + 1.2vw, 40px);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.page-header__description {
+    margin-top: 10px;
+    max-width: 640px;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+@media (max-width: 599.95px) {
+    .page-header__title { font-size: 28px; }
+}
+
+/* Hero variant (dashboard welcome band) */
+.page-header--hero {
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    padding: clamp(26px, 3.2vw, 40px) clamp(22px, 3.4vw, 44px);
+    border-radius: 30px;
+    background: var(--ds-gradient);
+    color: #FFFFFF;
+    box-shadow: 0 30px 60px -36px rgba(11, 27, 51, 0.7);
+}
+
+.page-header--hero::after {
+    content: "";
+    position: absolute;
+    right: -8%;
+    top: -60%;
+    width: 50%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(141, 180, 255, 0.25), transparent 65%);
+    pointer-events: none;
+}
+
+.page-header--hero .page-header__text {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+}
+
+.page-header--hero .page-header__title { color: #FFFFFF; }
+.page-header--hero .page-header__description { color: rgba(240, 245, 252, 0.88); }
+
+.page-header__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #E8CDB2;
+    font-family: var(--font-label);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.page-header__eyebrow::before {
+    content: "";
+    width: 26px;
+    height: 1.5px;
+    background: currentColor;
+}
+
+.page-header__art {
+    position: relative;
+    z-index: 1;
+    width: clamp(150px, 18vw, 230px);
+    margin: -18px 0 -30px auto;
+}
+
+.page-header--hero .page-header__actions {
+    position: relative;
+    z-index: 1;
+}
+
+.page-header--hero .MuiButton-outlined {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.page-header--hero .MuiButton-outlined:hover {
+    border-color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 899.95px) {
+    .page-header__art { display: none; }
+}
+
+/* ---------------------------------------------------------
+   5. STAT CARDS
+--------------------------------------------------------- */
+
+.stat-grid {
+    gap: 18px;
+}
+
+.stat-card {
+    position: relative;
+    overflow: hidden;
+    padding: 22px 22px 20px;
+    border-radius: 24px;
+    border-color: var(--bs-border);
+}
+
+.stat-card__label {
+    font-family: var(--font-label);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.stat-card__icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 15px 19px 13px 21px;
+}
+
+.stat-card__value {
+    margin-top: 16px;
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+}
+
+.stat-card__hint {
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.stat-card--featured {
+    background:
+        radial-gradient(260px 200px at 100% 100%, rgba(232, 205, 178, 0.28), transparent 70%),
+        linear-gradient(150deg, #0B1B33 0%, #143A82 70%, #2B5DB5 100%);
+    box-shadow: 0 24px 48px -26px rgba(11, 27, 51, 0.7);
+}
+
+:root[data-theme="dark"] .stat-card--featured {
+    background:
+        radial-gradient(260px 200px at 100% 100%, rgba(201, 166, 137, 0.2), transparent 70%),
+        linear-gradient(150deg, #0E1E3D 0%, #173B7C 100%);
+}
+
+.stat-card--featured .stat-card__label { color: #E8CDB2; }
+.stat-card--featured .stat-card__icon { background: rgba(255, 255, 255, 0.12); color: #E8CDB2; }
+
+@media (max-width: 599.95px) {
+    .stat-card { padding: 16px; border-radius: 20px; }
+    .stat-grid .stat-card .stat-card__value { font-size: 22px; }
+    .stat-grid .stat-card--featured .stat-card__value { font-size: 28px; }
+}
+
+/* ---------------------------------------------------------
+   6. SECTION CARDS
+--------------------------------------------------------- */
+
+.section-card {
+    border-radius: 26px;
+}
+
+.section-card__header {
+    padding: 22px 24px;
+    border-bottom-style: dashed;
+}
+
+.section-card__icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 15px 19px 13px 21px;
+}
+
+.section-card__title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.section-card__toolbar {
+    padding: 16px 24px;
+    border-bottom-style: dashed;
+}
+
+.section-card__body {
+    padding: 24px;
+}
+
+@media (max-width: 599.95px) {
+    .section-card { border-radius: 22px; }
+    .section-card__header,
+    .section-card__toolbar { padding-inline: 16px; }
+    .section-card__body { padding: 16px; }
+}
+
+/* ---------------------------------------------------------
+   7. TABLES, CHIPS, IDENTITY
+--------------------------------------------------------- */
+
+.identity__avatar {
+    border-radius: 14px 17px 12px 18px !important;
+}
+
+.cell-amount {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.status-chip {
+    padding-inline: 11px;
+}
+
+.data-card {
+    border-radius: 20px;
+}
+
+.count-badge {
+    border-radius: 999px;
+}
+
+/* ---------------------------------------------------------
+   8. FEEDBACK
+--------------------------------------------------------- */
+
+.empty-state__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 22px 28px 20px 30px;
+    background: var(--bs-sand-soft);
+    color: var(--bs-primary);
+}
+
+.empty-state__title {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.confirm-dialog__title {
+    font-family: var(--font-display);
+}
+
+.confirm-dialog__icon {
+    border-radius: 13px 16px 11px 17px;
+}
+
+.detail-list {
+    border-radius: 18px;
+    border-style: dashed;
+}
+
+.dialog-header__subtitle {
+    font-family: var(--font-body);
+}
+
+.info-banner {
+    border-radius: 18px;
+    border-style: dashed;
+}
+
+/* ---------------------------------------------------------
+   9. AUTHENTICATION PAGES
+--------------------------------------------------------- */
+
+.auth-page {
+    background:
+        radial-gradient(800px 500px at 0% 0%, color-mix(in srgb, var(--bs-primary) 10%, transparent), transparent 70%),
+        radial-gradient(700px 500px at 100% 100%, color-mix(in srgb, var(--bs-sand) 35%, transparent), transparent 70%),
+        var(--bs-bg);
+}
+
+.auth-card {
+    max-width: 1040px;
+    min-height: 620px;
+    border-radius: 36px;
+    box-shadow: 0 40px 80px -40px rgba(11, 27, 51, 0.45);
+}
+
+.auth-brand {
+    position: relative;
+    overflow: hidden;
+    padding: 40px;
+    background:
+        radial-gradient(420px 300px at 100% 0%, rgba(141, 180, 255, 0.25), transparent 70%),
+        linear-gradient(160deg, #0B1B33 0%, #133A85 52%, #2E62BC 100%);
+}
+
+.auth-brand__logo {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.auth-brand__body {
+    position: relative;
+    z-index: 1;
+}
+
+.auth-brand__headline {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 2.8vw, 42px);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+}
+
+.auth-brand__headline span {
+    color: #E8CDB2;
+}
+
+.auth-brand__description {
+    color: rgba(235, 242, 252, 0.86);
+    font-size: 15px;
+}
+
+.auth-brand__list svg {
+    color: #E8CDB2;
+}
+
+/* Corner art, kept below the highlight list */
+.auth-brand__art {
+    position: absolute;
+    right: -22px;
+    bottom: -20px;
+    width: min(40%, 200px);
+    opacity: 0.95;
+    pointer-events: none;
+}
+
+.auth-brand__footnote {
+    position: relative;
+    z-index: 1;
+    max-width: 45%;
+    border-top: 1px dashed rgba(255, 255, 255, 0.22);
+    color: rgba(235, 242, 252, 0.75);
+    font-family: var(--font-label);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.auth-panel {
+    padding: 28px 48px 44px;
+}
+
+.auth-panel__mobile-logo {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.auth-panel__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 17px 22px 15px 24px;
+    background: var(--bs-sand-soft);
+}
+
+.auth-panel__title {
+    font-family: var(--font-display);
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.auth-panel__subtitle {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.auth-form .MuiButton-sizeLarge {
+    min-height: 54px;
+}
+
+.auth-back {
+    font-family: var(--font-label);
+    font-size: 14.5px;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.auth-footer {
+    font-family: var(--font-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.text-link {
+    font-size: 13.5px;
+}
+
+@media (max-width: 479.95px) {
+    .auth-card { border-radius: 0; }
+    .auth-panel { padding: 16px 20px 32px; }
+    .auth-panel__title { font-size: 30px; }
+}
+
+/* ---------------------------------------------------------
+   10. PROFILE & SETTINGS
+--------------------------------------------------------- */
+
+.profile-grid {
+    display: grid;
+    gap: 20px;
+    align-items: start;
+}
+
+@media (min-width: 1100px) {
+    .profile-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+}
+
+.profile-identity {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding-bottom: 22px;
+    border-bottom: 1px dashed var(--bs-border-strong);
+}
+
+.profile-identity__avatar {
+    display: inline-grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 26px 32px 24px 34px;
+    background: var(--bs-sand);
+    color: #14213D;
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+}
+
+.profile-identity__name {
+    color: var(--bs-text);
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+}
+
+.profile-identity__role {
+    margin-top: 6px;
+    color: var(--bs-primary);
+    font-family: var(--font-label);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.profile-fields {
+    display: grid;
+    gap: 18px 28px;
+    margin: 22px 0 0;
+}
+
+@media (min-width: 600px) {
+    .profile-fields { grid-template-columns: 1fr 1fr; }
+    .profile-fields__wide { grid-column: 1 / -1; }
+}
+
+.profile-fields dt {
+    color: var(--bs-text-muted);
+    font-family: var(--font-label);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+}
+
+.profile-fields dd {
+    margin: 6px 0 0;
+    color: var(--bs-text);
+    font-size: 15px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.profile-note {
+    margin-top: 24px;
+}
+
+.profile-setting {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 20px;
+    padding: 18px 0;
+    border-bottom: 1px dashed var(--bs-border-strong);
+}
+
+.profile-setting:first-child { padding-top: 0; }
+.profile-setting:last-child { padding-bottom: 0; border-bottom: 0; }
+
+.profile-setting__title {
+    color: var(--bs-text);
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.profile-setting__text {
+    margin-top: 4px;
+    max-width: 320px;
+    color: var(--bs-text-muted);
+    font-size: 13.5px;
+    line-height: 1.55;
+}
+
+/* ---------------------------------------------------------
+   11. PAGE HELPERS
+--------------------------------------------------------- */
+
+.breakdown__track {
+    border-radius: 999px;
+}
+
+.breakdown__fill {
+    border-radius: 999px;
+}
+
+.flow-preview {
+    border-radius: 20px;
+    border-style: dashed;
+}
+
+/* Segmented controls (operation type, theme): pill-shaped ends */
+.MuiToggleButtonGroup-root:not(.MuiToggleButtonGroup-vertical) > .MuiToggleButton-root:first-of-type {
+    border-top-left-radius: 999px;
+    border-bottom-left-radius: 999px;
+    padding-left: 18px;
+}
+
+.MuiToggleButtonGroup-root:not(.MuiToggleButtonGroup-vertical) > .MuiToggleButton-root:last-of-type {
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+    padding-right: 18px;
+}
